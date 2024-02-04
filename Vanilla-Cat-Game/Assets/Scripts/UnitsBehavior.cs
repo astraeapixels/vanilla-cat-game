@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UnitsBehavior : MonoBehaviour
 {
- public GameObject manager;
+
+    public GameObject manager;
     public Vector2 location = Vector2.zero;
     public Vector2 velocity;
     Vector2 goalPos = Vector2.zero;
