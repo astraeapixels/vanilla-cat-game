@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7465455499271519156}
   - component: {fileID: 4197332512096842989}
   - component: {fileID: 6454514559226693462}
-  - component: {fileID: 679119862526457782}
   - component: {fileID: 8379429340855545534}
+  - component: {fileID: -7305206719005220600}
   m_Layer: 0
   m_Name: fish 1
   m_TagString: Untagged
@@ -138,21 +138,6 @@ PolygonCollider2D:
       - {x: 0.13, y: 0.04}
       - {x: 0.04, y: 0.16}
   m_UseDelaunayMesh: 0
---- !u!114 &679119862526457782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6304950827605204056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4619b3bd8043f2945a8b62ea0453283e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  location: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
 --- !u!50 &8379429340855545534
 Rigidbody2D:
   serializedVersion: 4
@@ -180,3 +165,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-7305206719005220600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6304950827605204056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4619b3bd8043f2945a8b62ea0453283e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  location: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}

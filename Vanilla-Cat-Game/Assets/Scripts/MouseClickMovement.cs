@@ -20,11 +20,11 @@ bool moving;
     void Update()
     {
         Vector2 target = new Vector2(lastClickedPos.x, 0.0f);
-        moving = true;
 
 
         if(Input.GetMouseButtonUp(0)){
-            lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);   
+            lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
+            moving = true; 
         }
         if(moving && (Vector2)transform.position != lastClickedPos){
             float step = speed * Time.deltaTime;
