@@ -10,7 +10,6 @@ public float speed = 10f;
 public Vector2 lastClickedPos;
 bool moving;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +20,10 @@ bool moving;
     {
         Vector2 target = new Vector2(lastClickedPos.x, 0.0f);
 
-
-        if(Input.GetMouseButtonUp(0)){
-            lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);  
-            moving = true; 
+        if(Input.GetMouseButtonDown(0))
+        {
+            lastClickedPos.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            moving = true;  
         }
         if(moving && (Vector2)transform.position != lastClickedPos){
             float step = speed * Time.deltaTime;
