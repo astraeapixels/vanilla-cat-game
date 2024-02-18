@@ -22,7 +22,7 @@ bool moving;
 
         if(Input.GetMouseButtonDown(0))
         {
-            lastClickedPos.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             moving = true;  
         }
         if(moving && (Vector2)transform.position != lastClickedPos){
