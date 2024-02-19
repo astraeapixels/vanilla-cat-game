@@ -21,6 +21,10 @@ public class PointsPath : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, Points[pointsIndex].transform.position, smoothSpeed * Time.deltaTime);
 
+            Vector3 dir = Points[pointsIndex].transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.normalized.y, dir.normalized.x);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f), smoothSpeed * Time.deltaTime);
+
             if(transform.position == Points[pointsIndex].transform.position)
             {
                 pointsIndex += 1;
