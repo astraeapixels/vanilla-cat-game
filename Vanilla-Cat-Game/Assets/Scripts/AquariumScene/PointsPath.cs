@@ -7,11 +7,22 @@ public class PointsPath : MonoBehaviour
 
     [SerializeField] Transform[] Points;
     [SerializeField] private float smoothSpeed = 5f;
+
+    [SerializeField] private float rotationSpeed = 10f;
     private int pointsIndex;
+
+    private float reachDistance = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = Points[pointsIndex].transform.position;
+        float distance = Vector3.Distance(Points[pointsIndex].position, transform.position);
+
+        if(distance <= reachDistance)
+        {
+            pointsIndex++;
+        }
+
+        //transform.position = Points[pointsIndex].transform.position;
     }
 
     // Update is called once per frame
@@ -23,7 +34,7 @@ public class PointsPath : MonoBehaviour
 
             Vector3 dir = Points[pointsIndex].transform.position - transform.position;
             float angle = Mathf.Atan2(dir.normalized.y, dir.normalized.x);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f), smoothSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f), rotationSpeed * Time.deltaTime);
 
             if(transform.position == Points[pointsIndex].transform.position)
             {
