@@ -16,7 +16,7 @@ public class PointsPath : MonoBehaviour
     void Start()
     {
         float distance = Vector3.Distance(Points[pointsIndex].position, transform.position);
-
+        
         if(distance <= reachDistance)
         {
             pointsIndex++;
