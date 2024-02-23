@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PointsPath : MonoBehaviour
 {
-
+    internal Transform player;
+    internal Transform[] position;
     [SerializeField] Transform[] Points;
     [SerializeField] private float smoothSpeed = 5f;
 
