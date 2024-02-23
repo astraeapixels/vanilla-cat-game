@@ -11,19 +11,10 @@ public class PointsPath : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 10f;
     private int pointsIndex;
-
-    private float reachDistance = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        float distance = Vector3.Distance(Points[pointsIndex].position, transform.position);
-        
-        if(distance <= reachDistance)
-        {
-            pointsIndex++;
-        }
-
-        //transform.position = Points[pointsIndex].transform.position;
+        transform.position = Points[pointsIndex].transform.position;
     }
 
     // Update is called once per frame
