@@ -20,8 +20,6 @@ public class CameraBounds : MonoBehaviour
     [SerializeField] float bottomLimit;
     [SerializeField] float topLimit;
 
-    private Vector3 velocity;
-
     // Start is called before the first frame update
     void Start()
     {
