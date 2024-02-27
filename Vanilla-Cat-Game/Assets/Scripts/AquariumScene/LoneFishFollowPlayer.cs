@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoneFishFollowPlayer : MonoBehaviour
 {
- public Transform loneFish;
+    public Transform loneFish;
     public Rigidbody2D rb;
     private float moveSpeed = 5f;
     private Vector3 mainPos;
@@ -16,10 +16,10 @@ public class LoneFishFollowPlayer : MonoBehaviour
     void Update()
     {   
         //defining variables
-       loneFish = GameObject.FindWithTag("Pet").transform;
+       loneFish = GameObject.FindWithTag("Fish").transform;
        player = GameObject.FindWithTag("Player").transform;
-
-        animator = gameObject.GetComponent<Animator>();
+       
+       animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -28,12 +28,12 @@ public class LoneFishFollowPlayer : MonoBehaviour
     {
         dist = Vector3.Distance(loneFish.position, player.transform.position);
 
-        float direction = Mathf.Sign(loneFish.transform.position.x);
-        transform.localScale(direction, 1, 1);
+        float direction = Mathf.Sign(dist);
+        transform.localScale = new Vector3(direction, 1, 1);
 
         //<summary>
         //fish following player only on the x axis
-        //stopping on when on the same point on the x-axis
+        //fish stopping on when on the same point on the x-axis
         if (loneFish.transform.position.x != player.transform.position.x)
         {
             mainPos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
@@ -42,10 +42,10 @@ public class LoneFishFollowPlayer : MonoBehaviour
 
             animator.Play("Moving");
         }
-  if (dist < 5.0f)
+
+        if (dist < 5.0f)
         {
             animator.Play("Close Distance");
-
         }
 
         else
@@ -54,23 +54,5 @@ public class LoneFishFollowPlayer : MonoBehaviour
             rb.isKinematic = true;
             animator.Play("Idle");
         }
-
-        // //<summary>
-        // //if fish is on the left side of player, then dog animations walks right
-        // //if fish is on the right side of player, then dog animations walks left
-        // //when fish doesn't move
-        // if (loneFish.position.x < player.position.x)
-        // {
-        //     animator.Play("Right");
-        // }
-        // else if (loneFish.position.x > player.position.x)
-        // {
-        //     animator.Play("Left");
-        // }
-        // else
-        // {
-        //     animator.Play("Idle");
-        // }
     }
-
 }
