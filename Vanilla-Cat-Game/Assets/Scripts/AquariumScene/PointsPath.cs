@@ -14,7 +14,7 @@ public class PointsPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = Points[pointsIndex].transform.position;
+        //transform.position = Points[pointsIndex].transform.position;
     }
 
     // Update is called once per frame
