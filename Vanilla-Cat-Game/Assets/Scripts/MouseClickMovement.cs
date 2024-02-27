@@ -18,7 +18,7 @@ bool moving;
     // Update is called once per frame
     void Update()
     {
-        Vector2 target = new Vector2(lastClickedPos.x, 0.0f);
+        Vector2 target = new Vector2(lastClickedPos.x, transform.position.y);
 
         if(Input.GetMouseButtonDown(0))
         {
