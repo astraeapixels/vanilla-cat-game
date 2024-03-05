@@ -800,7 +800,6 @@ GameObject:
   - component: {fileID: 322014252}
   - component: {fileID: 322014251}
   - component: {fileID: 322014255}
-  - component: {fileID: 322014256}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -961,18 +960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lastClickedPos: {x: 0, y: 0}
---- !u!114 &322014256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322014250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b442c352c39d294eadd38dfc6d0f1ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &324521505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,6 +2693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1854593821}
   - component: {fileID: 1854593822}
+  - component: {fileID: 1854593823}
   m_Layer: 0
   m_Name: Mouse Cursor
   m_TagString: Untagged
@@ -2742,6 +2730,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalMouse: {fileID: 2800000, guid: 24dd0f2c74c3eca4688b7bc44b8fc95b, type: 3}
   pressedMouse: {fileID: 2800000, guid: c02cc98aff479dc4cbeec77f371993f0, type: 3}
+--- !u!114 &1854593823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854593819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94e28a97a91c7c499fa42b7e7643708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1877530490
 GameObject:
   m_ObjectHideFlags: 0

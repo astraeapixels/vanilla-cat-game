@@ -31,6 +31,6 @@ public class Grabbable : MonoBehaviour
     }
 
     private void OnMouseExit(){
-        //canGrab = false;
+        canGrab = false;
     }
 }
