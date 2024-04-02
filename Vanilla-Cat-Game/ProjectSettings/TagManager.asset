@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fish
   - Fish Tank
+  - Cursor
   layers:
   - Default
   - TransparentFX
