@@ -8,6 +8,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField, TextArea(1,6)] private string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject cinBars;
 
     private bool didDialoguePlay;
     private int stringIndex;
@@ -41,6 +42,7 @@ public class UIDialoguePrefab : MonoBehaviour
     private void StartDialogue()
     {
         didDialoguePlay = true;
+        cinBars.GetComponent<CinematicBars>().ShowBars(125f, .5f);
         dialoguePanel.SetActive(true);
         stringIndex = 0;
         Time.timeScale = 0f;
@@ -56,6 +58,7 @@ public class UIDialoguePrefab : MonoBehaviour
         {
             didDialoguePlay = false;
             dialoguePanel.SetActive(false);
+            cinBars.GetComponent<CinematicBars>().HideBars(.5f);
             Time.timeScale = 1f;
         }
     }
