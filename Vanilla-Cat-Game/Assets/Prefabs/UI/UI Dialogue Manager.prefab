@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5986324095002294024}
   - component: {fileID: 1274964660241002483}
   m_Layer: 0
-  m_Name: UI Dialogue Manager 1
+  m_Name: UI Dialogue Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
