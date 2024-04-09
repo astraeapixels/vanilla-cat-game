@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28a767029303b2440ae98f3ad3bdfbe4
+guid: a877eec37341dd8438ea2e457f182fda
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Hat previews
+  - name: Hat Buttons
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 132
-      height: 61
-    spriteID: eeaff7f1746a23a4e8b2bacbbd083166
+      width: 64
+      height: 65
+    spriteID: 978487556a2b48a4db033ceb193824ca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,24 +144,24 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 12973312
-    name: Hat previews
+    guid: -624801150
+    name: Hat Buttons
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Hat previews
+    - name: Hat Buttons
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 132
-        height: 61
-      spriteId: eeaff7f1746a23a4e8b2bacbbd083166
+        width: 64
+        height: 65
+      spriteId: 978487556a2b48a4db033ceb193824ca
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 132, y: 61}
+  canvasSize: {x: 64, y: 65}
