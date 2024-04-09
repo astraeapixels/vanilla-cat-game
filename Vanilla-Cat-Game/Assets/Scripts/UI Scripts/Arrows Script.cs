@@ -7,7 +7,7 @@ public class ArrowsScript : MonoBehaviour
 {
     [SerializeField] private Image[] previewImages;
     [SerializeField] Button leftButton, rightButton;
-    [SerializeField] private int numOfHatImages;
+    private int numOfHatImages;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class ArrowsScript : MonoBehaviour
     // Update is called once per frame
     public void showNextPreview()
     {
+        previewImages[numOfHatImages].enabled = false;
         numOfHatImages++;
 
         if(numOfHatImages > previewImages.Length -1)
