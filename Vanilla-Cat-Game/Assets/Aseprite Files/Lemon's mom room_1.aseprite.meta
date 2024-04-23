@@ -123,14 +123,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Lemon's mom room_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.50078, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 640
+      width: 641
       height: 360
     spriteID: 156a48c8ba516664dbd0d1283c22213a
     spriteBone: []
@@ -153,9 +153,9 @@ ScriptedImporter:
     - name: Lemon's mom room_1
       frameIndex: 0
       cellRect:
-        x: 0
+        x: -1
         y: 0
-        width: 640
+        width: 641
         height: 360
       spriteId: 156a48c8ba516664dbd0d1283c22213a
     linkedCells: []

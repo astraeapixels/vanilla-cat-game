@@ -42,7 +42,7 @@ public class UIDialoguePrefab : MonoBehaviour
     private void StartDialogue()
     {
         didDialoguePlay = true;
-        cinBars.GetComponent<CinematicBars>().ShowBars(125f, .5f);
+        cinBars.GetComponent<CinematicBars>().ShowBars(100f, .5f);
         dialoguePanel.SetActive(true);
         stringIndex = 0;
         Time.timeScale = 0f;
