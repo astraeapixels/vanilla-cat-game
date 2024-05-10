@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -9,15 +9,19 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject cinBars;
-
+    [SerializeField] private RectTransform dgbRect;
+    [SerializeField] private float fadeInTime;
+    [SerializeField] private float fadeOutTime;
+    [SerializeField] private CanvasGroup dgGroup;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = 0.05f;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -26,7 +30,9 @@ public class UIDialoguePrefab : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             if(!didDialoguePlay)
-            {
+            {  
+                cinBars.GetComponent<CinematicBars>().ShowBars(50f, 10f);
+
                 StartDialogue();
             }else if(dialogueText.text == dialogueLines[stringIndex])
             {
@@ -42,10 +48,9 @@ public class UIDialoguePrefab : MonoBehaviour
     private void StartDialogue()
     {
         didDialoguePlay = true;
-        cinBars.GetComponent<CinematicBars>().ShowBars(100f, .5f);
-        dialoguePanel.SetActive(true);
+        PanelFadeIn();;
         stringIndex = 0;
-        Time.timeScale = 0f;
+        Time.timeScale = .5f;
         StartCoroutine(ShowLine());
     }
     private void NextLineInDialogue()
@@ -57,8 +62,8 @@ public class UIDialoguePrefab : MonoBehaviour
         }else
         {
             didDialoguePlay = false;
-            dialoguePanel.SetActive(false);
             cinBars.GetComponent<CinematicBars>().HideBars(.5f);
+            PanelFadeOut();
             Time.timeScale = 1f;
         }
     }
@@ -70,5 +75,19 @@ public class UIDialoguePrefab : MonoBehaviour
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);
         }
+    }
+
+    private void PanelFadeIn(){
+        dgGroup.alpha = 1f;
+        dgbRect.transform.localPosition = new Vector3(0f, -180f, 0f);
+        dgbRect.DOAnchorPos(new Vector2(0f, 75f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        dgGroup.DOFade(1, fadeInTime);
+    }
+
+        private void PanelFadeOut(){
+        dgGroup.alpha = 1f;
+        dgbRect.transform.localPosition = new Vector3(0f, -105f, 0f);
+        dgbRect.DOAnchorPos(new Vector2(0f, -75f), fadeOutTime, false).SetEase(Ease.InOutQuint);
+        dgGroup.DOFade(1, fadeOutTime);
     }
 }
