@@ -344,12 +344,11 @@ MonoBehaviour:
   - Hi, my name is Lemon
   - 'At least that''s what my mom calls me '
   dialogueText: {fileID: 4771086430218242265}
-  dialoguePanel: {fileID: 4214883992425588877}
   cinBars: {fileID: 6568259739329402515}
-  dgbRect: {fileID: 3031056605647734946}
-  fadeInTime: 0.025
-  fadeOutTime: 1
-  dgGroup: {fileID: 6122536291156644653}
+  dialogueRect: {fileID: 3031056605647734946}
+  fadeInTime: 0.25
+  fadeOutTime: 0.5
+  dialogueGroup: {fileID: 6122536291156644653}
 --- !u!1 &6568259739329402515
 GameObject:
   m_ObjectHideFlags: 0
