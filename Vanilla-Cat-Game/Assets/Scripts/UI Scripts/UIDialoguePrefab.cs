@@ -7,12 +7,11 @@ public class UIDialoguePrefab : MonoBehaviour
 {
     [SerializeField, TextArea(1,6)] private string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject cinBars;
-    [SerializeField] private RectTransform dgbRect;
+    [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] private CanvasGroup dgGroup;
+    [SerializeField] private CanvasGroup dialogueGroup;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = 0.05f;
@@ -78,16 +77,16 @@ public class UIDialoguePrefab : MonoBehaviour
     }
 
     private void PanelFadeIn(){
-        dgGroup.alpha = 1f;
-        dgbRect.transform.localPosition = new Vector3(0f, -180f, 0f);
-        dgbRect.DOAnchorPos(new Vector2(0f, 75f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        dgGroup.DOFade(1, fadeInTime);
+        dialogueGroup.alpha = 1f;
+        dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
+        dialogueRect.DOAnchorPos(new Vector2(0f, 75f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        dialogueGroup.DOFade(1, fadeInTime);
     }
 
         private void PanelFadeOut(){
-        dgGroup.alpha = 1f;
-        dgbRect.transform.localPosition = new Vector3(0f, -105f, 0f);
-        dgbRect.DOAnchorPos(new Vector2(0f, -75f), fadeOutTime, false).SetEase(Ease.InOutQuint);
-        dgGroup.DOFade(1, fadeOutTime);
+        dialogueGroup.alpha = 1f;
+        dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
+        dialogueRect.DOAnchorPos(new Vector2(0f, -75f), fadeOutTime, false).SetEase(Ease.InOutQuint);
+        dialogueGroup.DOFade(1, fadeOutTime);
     }
 }
