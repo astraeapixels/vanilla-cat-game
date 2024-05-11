@@ -1,32 +1,37 @@
 using UnityEngine.UI;
-
-
 using UnityEngine;
+using TMPro;
+
 
 public class EmotionEmoticonImageSystem : MonoBehaviour
 {
-    public enum EmotionType {Neutral, Happy, Sassy, Flirty, Soft, Angry, Confused, Sad, Surprised, Scared, InLove};
+    
+
+     public enum EmotionType {Neutral, Happy, Sassy, Flirty, Soft, Angry, Confused, Sad, Surprised, Scared, InLove};
     [SerializeField] private Image[] emotionImages;
 
     public Image defaultEmotionImage;
 
+    [SerializeField] private TMP_Text textComponent;
 
+    
+    public void Start()
+    {
+
+    }
+    
 
     // Start is called before the first frame update
-    void Start()
-    { 
-    }
-
-    // Update is called once per frame
-    void Update()
+     public void ProcessText()
     {
-    }
-
-    private void OnDialogueLineSpoken(string dialogueLine)
-    {
-        EmotionType emotionType = AnalyzeSentiment(dialogueLine);
-        
-        defaultEmotionImage = emotionImages[(int)emotionType];
+        string[] strings = textComponent.text.Split('\n');
+        for (int i = 0; i < strings.Length; i++)
+        {
+            string str = strings[i];
+            EmotionType emotionType = AnalyzeSentiment(str);
+            Image currentImage = emotionImages[(int)emotionType];
+            defaultEmotionImage = currentImage;
+        }
     }
 
     EmotionType AnalyzeSentiment(string dialogueLine)
