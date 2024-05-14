@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
-    [SerializeField, TextArea(1,6)] private string[] dialogueLines;
+    [TextArea(1,6)] public string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject cinBars;
     [SerializeField] private RectTransform dialogueRect;
@@ -15,38 +15,44 @@ public class UIDialoguePrefab : MonoBehaviour
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = 0.05f;
+    public CameraZoomController cameraZoom;
     
 
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
+        TriggerDialogue("Start Dialogue");
     }
 
     // Update is called once per frame
-    void Update()
+    public void TriggerDialogue(string eventName)
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            if(!didDialoguePlay)
-            {  
-                cinBars.GetComponent<CinematicBars>().ShowBars(50f, 10f);
+        // if (eventName == "Start Dialogue")
+        // {
+            if(Input.GetMouseButtonDown(0))
+            {
+                if(!didDialoguePlay)
+                {  
+                    cinBars.GetComponent<CinematicBars>().ShowBars(50f, 10f);
 
-                StartDialogue();
-            }else if(dialogueText.text == dialogueLines[stringIndex])
-            {
-                NextLineInDialogue();
-            }else
-            {
-                StopAllCoroutines();
-                dialogueText.text = dialogueLines[stringIndex];
+                    StartDialogue();
+                }else if(dialogueText.text == dialogueLines[stringIndex])
+                {
+                    NextLineInDialogue();
+                }else
+                {
+                    StopAllCoroutines();
+                    dialogueText.text = dialogueLines[stringIndex];
+                }
             }
-        }
+        //}
     }
 
     private void StartDialogue()
     {
         didDialoguePlay = true;
+        cameraZoom.OnDialogueEvent();
         PanelFadeIn();;
         stringIndex = 0;
         Time.timeScale = .5f;
@@ -65,6 +71,11 @@ public class UIDialoguePrefab : MonoBehaviour
             PanelFadeOut();
             Time.timeScale = 1f;
         }
+    }
+
+    public void SetDialogueLines(string[] newLines)
+    {
+        dialogueLines = newLines;
     }
     private IEnumerator ShowLine()
     {

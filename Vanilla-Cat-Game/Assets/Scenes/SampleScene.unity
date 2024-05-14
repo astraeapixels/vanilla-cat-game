@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -560,6 +561,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d7ad249ea5fbc4b9f93e5a1cb4aca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b34bf26a4f8ce4cb5454590c28cdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomCamera: {fileID: 519420031}
+  zoomIncrement: 1
+  currentZoomLevel: 0
 --- !u!1 &634527930
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,81 +685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655191670}
   m_CullTransparentMesh: 1
---- !u!1 &1391105791
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1391105792}
-  - component: {fileID: 1391105794}
-  - component: {fileID: 1391105793}
-  m_Layer: 0
-  m_Name: 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1391105792
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391105791}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1649012101}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: -0.000027656555}
-  m_SizeDelta: {x: 128, y: 128}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1391105793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391105791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1391105794
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391105791}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1497886373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -753,12 +694,48 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: cameraZoom
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: emotionImage
+      value: 
+      objectReference: {fileID: 1649012102}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: relationships
+      value: 
+      objectReference: {fileID: 11400000, guid: e971541207f640d4bb11dcd39c3d2df0, type: 2}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: emotionImageUI
+      value: 
+      objectReference: {fileID: 1649012102}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: defaultEmotionImage
       value: 
       objectReference: {fileID: 1649012102}
     - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: emotionImages.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: dialogueLines.Array.data[0]
+      value: Hello!! I'm Lemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: At least I think??
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: dialogueLines.Array.data[2]
+      value: I mean that's what my mom says to try to get my attention...
       objectReference: {fileID: 0}
     - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: emotionImages.Array.data[0]
@@ -767,7 +744,23 @@ PrefabInstance:
     - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: emotionImages.Array.data[1]
       value: 
-      objectReference: {fileID: 1391105793}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: currentDialogueLine.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: currentDialogueLine.Array.data[0]
+      value: Hi, my name is Lemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168946315451605854, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: currentDialogueLine.Array.data[1]
+      value: 'At least that''s what my mom calls me '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031056605647734946, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 5375366883202032011, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -808,16 +801,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5934454065078518549, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
     - target: {fileID: 8511312256666783163, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       propertyPath: m_Name
       value: Lemon Dialogue UI_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4272191013569480231, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1391105792}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8539446866153136962, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
       insertIndex: -1
@@ -980,11 +974,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8539446866153136962, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
   m_PrefabInstance: {fileID: 1497886373}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1649012101 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4272191013569480231, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
-  m_PrefabInstance: {fileID: 1497886373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1649012102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5934454065078518549, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
@@ -1005,16 +994,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1649012100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fdfd39abb7d734b985a4131d659e2f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0ccf8f4509a8684f9134345ef6e5bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uIDialoguePrefab: {fileID: 0}
-  emotionImages:
-  - {fileID: 1649012102}
-  - {fileID: 1391105793}
-  defaultEmotionImage: {fileID: 1649012102}
-  currentDialogueLine: []
+  relationships: {fileID: 11400000, guid: e971541207f640d4bb11dcd39c3d2df0, type: 2}
+  emoticonImages: []
   currentEmotion: 0
+  currentDialogueText: 
+  currentEmoticonImage: {fileID: 0}
+  textComponent: {fileID: 2067827406}
+--- !u!114 &2067827406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4771086430218242265, guid: 82b623cb9e2b04442a30ca4608795acb, type: 3}
+  m_PrefabInstance: {fileID: 1497886373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
