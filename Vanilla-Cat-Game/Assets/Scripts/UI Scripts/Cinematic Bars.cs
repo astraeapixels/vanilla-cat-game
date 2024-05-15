@@ -1,70 +1,40 @@
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class CinematicBars : MonoBehaviour
 {
-    private RectTransform topBar, bottomBar;
-    private float changeSizeAmount;
-    private float targetSize;
-    private bool isActive;
+    [SerializeField] private RectTransform topBar, bottomBar;
+     [SerializeField] private float fadeInTime;
+    [SerializeField] private float fadeOutTime;
+    [SerializeField] private CanvasGroup cinematicBarsGroup;
     
     private void Awake()
     {
-        CreateBars();
     }
 
-    private void CreateBars()
-    {
-        GameObject blackBars = new GameObject("topBar", typeof(Image));
-        blackBars.transform.SetParent(transform, false);
-        blackBars.GetComponent<Image>().color = Color.black;
-        topBar = blackBars.GetComponent<RectTransform>();
-        topBar.anchorMin = new Vector2(0, 1);
-        topBar.anchorMax = new Vector2(1, 1);
-        topBar.sizeDelta = new Vector2(0, 0);
+        public void ShowBars(){
+        cinematicBarsGroup.alpha = 1f;
+        topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
+        topBar.DOAnchorPos(new Vector2(0f, 162f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        cinematicBarsGroup.DOFade(1, fadeInTime);
 
-        blackBars = new GameObject("bottomBar", typeof(Image));
-        blackBars.transform.SetParent(transform, false);
-        blackBars.GetComponent<Image>().color = Color.black;
-        bottomBar = blackBars.GetComponent<RectTransform>();
-        bottomBar.anchorMin = new Vector2(0, 0);
-        bottomBar.anchorMax = new Vector2(1, 0);
-        bottomBar.sizeDelta = new Vector2(0, 0);
+        cinematicBarsGroup.alpha = 1f;
+        bottomBar.transform.localPosition = new Vector3(0f, -162f, 0f);
+        bottomBar.DOAnchorPos(new Vector2(0f, -162f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        cinematicBarsGroup.DOFade(1, fadeInTime);
     }
-    void Update()
-    {
-        Vector2 sizeDelta = topBar.sizeDelta;
-        sizeDelta.y += changeSizeAmount * Time.deltaTime;
-        
-        if(isActive)
+
+        public void HideBars()
         {
-            if(sizeDelta.y >= targetSize)
-            {
-                sizeDelta.y = targetSize;
-                isActive = false;
-            }
-        } else{ 
-            if(sizeDelta.y <= targetSize)
-            {
-                sizeDelta.y = targetSize;
-            }
+        cinematicBarsGroup.alpha = 1f;
+        topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
+        topBar.DOAnchorPos(new Vector2(0f, 198f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        cinematicBarsGroup.DOFade(1, fadeInTime);
+
+        cinematicBarsGroup.alpha = 1f;
+        bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
+        bottomBar.DOAnchorPos(new Vector2(0f, -198f), fadeInTime, false).SetEase(Ease.InOutQuint);
+        cinematicBarsGroup.DOFade(1, fadeInTime);
         }
-
-        topBar.sizeDelta = sizeDelta;
-        bottomBar.sizeDelta = sizeDelta;
     }
-
-    public void ShowBars(float targetSize, float time)
-    {
-        this.targetSize = targetSize;
-        changeSizeAmount = (this.targetSize - topBar.sizeDelta.y) / time;
-    }
-    public void HideBars(float time)
-    {
-        targetSize = 0;
-        changeSizeAmount = (targetSize - topBar.sizeDelta.y) / time;
-        isActive = true;
-
-    }
-
-}

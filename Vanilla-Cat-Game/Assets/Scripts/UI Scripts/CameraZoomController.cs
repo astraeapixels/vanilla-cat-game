@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class CameraZoomController : MonoBehaviour
 {   
-    [SerializeField] private Camera zoomCamera;
+    public Camera zoomCamera;
     [SerializeField] private float zoomIncrement = 1f;
-    [SerializeField]private float currentZoomLevel;
-    [SerializeField]private float minZoom;
-    [SerializeField]private float maxZoom;
+    public float currentZoomLevel;
+    private float minZoom = 4f;
+    private float maxZoom = 5f;
     // Start is called before the first frame update
     void Start()
     {
-        currentZoomLevel = zoomCamera.orthographicSize;
+        currentZoomLevel = zoomCamera.fieldOfView;
     }
 
     // Update is called once per frame
     public void OnDialogueEvent()
     {
         float newZoom = currentZoomLevel - zoomIncrement;
-        zoomCamera.orthographicSize = Mathf.Clamp(newZoom, minZoom, maxZoom);
+        zoomCamera.fieldOfView = Mathf.Clamp(newZoom, minZoom, maxZoom);
     }
 }

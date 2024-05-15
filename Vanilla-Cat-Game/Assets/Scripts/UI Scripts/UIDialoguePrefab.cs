@@ -34,7 +34,7 @@ public class UIDialoguePrefab : MonoBehaviour
             {
                 if(!didDialoguePlay)
                 {  
-                    cinBars.GetComponent<CinematicBars>().ShowBars(50f, 10f);
+                    cinBars.GetComponent<CinematicBars>().ShowBars();
 
                     StartDialogue();
                 }else if(dialogueText.text == dialogueLines[stringIndex])
@@ -67,7 +67,7 @@ public class UIDialoguePrefab : MonoBehaviour
         }else
         {
             didDialoguePlay = false;
-            cinBars.GetComponent<CinematicBars>().HideBars(.5f);
+            cinBars.GetComponent<CinematicBars>().HideBars();
             PanelFadeOut();
             Time.timeScale = 1f;
         }
