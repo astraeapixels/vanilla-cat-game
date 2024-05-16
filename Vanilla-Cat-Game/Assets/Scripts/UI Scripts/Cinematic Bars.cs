@@ -20,7 +20,7 @@ public class CinematicBars : MonoBehaviour
         cinematicBarsGroup.DOFade(1, fadeInTime);
 
         cinematicBarsGroup.alpha = 1f;
-        bottomBar.transform.localPosition = new Vector3(0f, -162f, 0f);
+        bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
         bottomBar.DOAnchorPos(new Vector2(0f, -162f), fadeInTime, false).SetEase(Ease.InOutQuint);
         cinematicBarsGroup.DOFade(1, fadeInTime);
     }
