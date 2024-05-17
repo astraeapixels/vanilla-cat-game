@@ -349,6 +349,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4305015689773057466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2548305425880487538, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+  m_PrefabInstance: {fileID: 9063928662097145060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf824daef1bb524993267e847a20e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9063928662097145060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,6 +372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lemon Dialogue UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7208478095145318498, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: cinBars
+      value: 
+      objectReference: {fileID: 4305015689773057466}
     - target: {fileID: 7208478095145318498, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: cameraZoom
       value: 

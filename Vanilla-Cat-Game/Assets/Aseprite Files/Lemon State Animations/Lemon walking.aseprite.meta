@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cfbcd7a65e932d8498aa1e15199f2c63
+guid: d22971ac1883e21498a038fe59028fbe
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -120,48 +120,20 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  animatedSpriteImportData:
-  - name: Lemon's mom room_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 1952
-      height: 361
-    spriteID: 611ad8889d9c9c94e89c21c288f4deb0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+  animatedSpriteImportData: []
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1457417909
-    name: Lemon's mom room_3
+    guid: 59700286
+    name: Lemon walking
     layerFlags: 0
     layerType: 0
     blendMode: 0
-    cells:
-    - name: Lemon's mom room_3
-      frameIndex: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 1952
-        height: 361
-      spriteId: 611ad8889d9c9c94e89c21c288f4deb0
+    cells: []
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1952, y: 360}
+  canvasSize: {x: 64, y: 32}

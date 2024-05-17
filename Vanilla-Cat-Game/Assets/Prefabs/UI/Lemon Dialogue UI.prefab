@@ -121,7 +121,7 @@ MonoBehaviour:
   - At least I think??
   - I mean that's what my mom says to try to get my attention...
   dialogueText: {fileID: 3724887101960961521}
-  cinBars: {fileID: 8841811505597395981}
+  cinBars: {fileID: 2548305425880487538}
   dialogueRect: {fileID: 3288772396476607742}
   fadeInTime: 0.25
   fadeOutTime: 0.5

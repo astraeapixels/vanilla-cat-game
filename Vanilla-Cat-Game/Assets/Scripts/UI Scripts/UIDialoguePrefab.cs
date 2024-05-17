@@ -2,12 +2,13 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using System;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
     [TextArea(1,6)] public string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private GameObject cinBars;
+    [SerializeField] private CinematicBars cinBars;
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
@@ -16,16 +17,20 @@ public class UIDialoguePrefab : MonoBehaviour
     private int stringIndex;
     private float typingTime = 0.05f;
     public CameraZoomController cameraZoom;
+
+    public delegate void MyDialogueDelagate(string eventName);
+    MyDialogueDelagate myDelagate;
     
 
 
     // Start is called before the first frame update
     void Update()
     {
-        TriggerDialogue("Start Dialogue");
+        myDelagate += TriggerDialogue;
+        myDelagate("Start Dialogue");
     }
 
-    // Update is called once per frame
+    
     public void TriggerDialogue(string eventName)
     {
         // if (eventName == "Start Dialogue")
@@ -34,7 +39,7 @@ public class UIDialoguePrefab : MonoBehaviour
             {
                 if(!didDialoguePlay)
                 {  
-                    cinBars.GetComponent<CinematicBars>().ShowBars();
+                    cinBars.ShowBars();
 
                     StartDialogue();
                 }else if(dialogueText.text == dialogueLines[stringIndex])
@@ -67,7 +72,7 @@ public class UIDialoguePrefab : MonoBehaviour
         }else
         {
             didDialoguePlay = false;
-            cinBars.GetComponent<CinematicBars>().HideBars();
+            cinBars.HideBars();
             PanelFadeOut();
             Time.timeScale = 1f;
         }
