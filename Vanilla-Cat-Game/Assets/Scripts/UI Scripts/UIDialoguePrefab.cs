@@ -26,7 +26,7 @@ public class UIDialoguePrefab : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        myDelagate += TriggerDialogue;
+        myDelagate = TriggerDialogue;
         myDelagate("Start Dialogue");
     }
 
@@ -58,7 +58,7 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         didDialoguePlay = true;
         cameraZoom.OnDialogueEvent();
-        PanelFadeIn();;
+        PanelFadeIn();
         stringIndex = 0;
         Time.timeScale = .5f;
         StartCoroutine(ShowLine());
