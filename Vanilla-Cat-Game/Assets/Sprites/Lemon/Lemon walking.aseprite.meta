@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 604ed41c8dae4d3429ed92a48d08e6c5
+guid: d22971ac1883e21498a038fe59028fbe
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638516946956123575
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,58 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Lemon walking_Frame_0
+  - name: Lemon walking
     originalName: 
-    pivot: {x: 0.45348835, y: 0}
+    pivot: {x: 0.49462363, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 111
-      y: 436
-      width: 86
-      height: 64
-    spriteID: d1a559e0bbfc6a8498715c22abd9171a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 111, y: 436}
-  - name: Lemon walking_Frame_1
-    originalName: 
-    pivot: {x: 0.4659091, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 111
+      x: 4
       y: 364
-      width: 88
-      height: 64
-    spriteID: b426038a427e4ef4f9aae4c23675c366
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 111, y: 364}
-  - name: Lemon walking_Frame_2
-    originalName: 
-    pivot: {x: 0.49462363, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 436
       width: 93
       height: 64
-    spriteID: 6fa5948ce401f9e489650cd623f2edbc
+    spriteID: 22df15e95bbe84c4e876c4e15f9ddaed
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,48 +140,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 436}
-  - name: Lemon walking_Frame_3
-    originalName: 
-    pivot: {x: 0.49462363, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 111
-      y: 4
-      width: 93
-      height: 64
-    spriteID: 81f4cf18b9311b94b989c5f2ec3b3335
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 111, y: 4}
-  - name: Lemon walking_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 292
-      width: 94
-      height: 64
-    spriteID: 7ca0cea642608c24580db387ec2ab2a0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 292}
-  - name: Lemon walking_Frame_5
+    uvTransform: {x: 4, y: 364}
+  - name: Lemon walking_Frame_1
     originalName: 
     pivot: {x: 0.4719101, y: 0}
     alignment: 9
@@ -232,7 +152,7 @@ ScriptedImporter:
       y: 220
       width: 89
       height: 64
-    spriteID: 83f5d73ac9f13db40bfc82423d9e1ae9
+    spriteID: 5c262e1f0ee587044a8200228f7378c1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 111, y: 220}
-  - name: Lemon walking_Frame_6
+  - name: Lemon walking_Frame_2
     originalName: 
     pivot: {x: 0.4777778, y: 0}
     alignment: 9
@@ -252,7 +172,7 @@ ScriptedImporter:
       y: 148
       width: 90
       height: 64
-    spriteID: 58cb99cf189e4f74aa273400d6da969f
+    spriteID: 2a65e4fb3b212aa44a4c9badee942816
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 111, y: 148}
-  - name: Lemon walking_Frame_7
+  - name: Lemon walking_Frame_3
     originalName: 
     pivot: {x: 0.4835165, y: 0}
     alignment: 9
@@ -272,7 +192,7 @@ ScriptedImporter:
       y: 76
       width: 91
       height: 64
-    spriteID: cf164ea3f07dffb46a73c27b9fbb7052
+    spriteID: 00957b6d82da8c14b929fe49419db3a9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 111, y: 76}
-  - name: Lemon walking_Frame_8
+  - name: Lemon walking_Frame_4
     originalName: 
     pivot: {x: 0.50526315, y: 0}
     alignment: 9
@@ -292,7 +212,7 @@ ScriptedImporter:
       y: 148
       width: 95
       height: 64
-    spriteID: ad42a343300b07a43b00251e8c97c0bf
+    spriteID: ee632a262f40bc94994ae8002a839819
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 148}
-  - name: Lemon walking_Frame_9
+  - name: Lemon walking_Frame_5
     originalName: 
     pivot: {x: 0.5154639, y: 0}
     alignment: 9
@@ -312,7 +232,7 @@ ScriptedImporter:
       y: 76
       width: 97
       height: 64
-    spriteID: 71c50344c48c49144b755790ad847409
+    spriteID: ce30571cc7a6fc641b922288b1d9b5d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 76}
-  - name: Lemon walking_Frame_10
+  - name: Lemon walking_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -329,10 +249,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 364
+      y: 292
       width: 94
       height: 64
-    spriteID: 7654f922f12963346a27deda7be5f3dd
+    spriteID: 928e8aaaa8494db488adab1bf7c3ef62
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -340,8 +260,48 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 364}
-  - name: Lemon walking_Frame_11
+    uvTransform: {x: 4, y: 292}
+  - name: Lemon walking_Frame_7
+    originalName: 
+    pivot: {x: 0.4659091, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 364
+      width: 88
+      height: 64
+    spriteID: 18397d997407bca49b7741541b25e20d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 364}
+  - name: Lemon walking_Frame_8
+    originalName: 
+    pivot: {x: 0.45348835, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 436
+      width: 86
+      height: 64
+    spriteID: 2ffc94c58dd90ac4ab84fde6d37c380d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 436}
+  - name: Lemon walking_Frame_9
     originalName: 
     pivot: {x: 0.4719101, y: 0}
     alignment: 9
@@ -352,7 +312,7 @@ ScriptedImporter:
       y: 292
       width: 89
       height: 64
-    spriteID: 6ee931fda7f04374cb1fa3d8a37703e4
+    spriteID: 0077ea422bdbf4644b1e8e362851132b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,6 +321,46 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 111, y: 292}
+  - name: Lemon walking_Frame_10
+    originalName: 
+    pivot: {x: 0.49462363, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 436
+      width: 93
+      height: 64
+    spriteID: 4360ebdab58c2dd4cb0d8dfc32faa2ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 436}
+  - name: Lemon walking_Frame_11
+    originalName: 
+    pivot: {x: 0.49462363, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 4
+      width: 93
+      height: 64
+    spriteID: fd529e342de45ff42b6b397ec20e64a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 4}
   - name: Lemon walking_Frame_12
     originalName: 
     pivot: {x: 0.50526315, y: 0}
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 220
       width: 95
       height: 64
-    spriteID: e2cd50efaf958c346ac61ee8bf031faf
+    spriteID: 9f5678a4e1bd6344f990853ab94ac859
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 4
       width: 99
       height: 64
-    spriteID: a473a3b02f3a96343a7342e3b2ea04b4
+    spriteID: 77de42fa055786349bb22c4b622dd8a4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -410,46 +410,14 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Lemon walking_Frame_8
-      frameIndex: 8
-      cellRect:
-        x: 13
-        y: 0
-        width: 86
-        height: 64
-      spriteId: d1a559e0bbfc6a8498715c22abd9171a
-    - name: Lemon walking_Frame_9
-      frameIndex: 9
-      cellRect:
-        x: 11
-        y: 0
-        width: 88
-        height: 64
-      spriteId: b426038a427e4ef4f9aae4c23675c366
-    - name: Lemon walking_Frame_10
-      frameIndex: 10
-      cellRect:
-        x: 6
-        y: 0
-        width: 93
-        height: 64
-      spriteId: 6fa5948ce401f9e489650cd623f2edbc
-    - name: Lemon walking_Frame_11
-      frameIndex: 11
-      cellRect:
-        x: 6
-        y: 0
-        width: 93
-        height: 64
-      spriteId: 81f4cf18b9311b94b989c5f2ec3b3335
     - name: Lemon walking_Frame_0
       frameIndex: 0
       cellRect:
-        x: 5
+        x: 6
         y: 0
-        width: 94
+        width: 93
         height: 64
-      spriteId: 7ca0cea642608c24580db387ec2ab2a0
+      spriteId: 22df15e95bbe84c4e876c4e15f9ddaed
     - name: Lemon walking_Frame_1
       frameIndex: 1
       cellRect:
@@ -457,7 +425,7 @@ ScriptedImporter:
         y: 0
         width: 89
         height: 64
-      spriteId: 83f5d73ac9f13db40bfc82423d9e1ae9
+      spriteId: 5c262e1f0ee587044a8200228f7378c1
     - name: Lemon walking_Frame_2
       frameIndex: 2
       cellRect:
@@ -465,7 +433,7 @@ ScriptedImporter:
         y: 0
         width: 90
         height: 64
-      spriteId: 58cb99cf189e4f74aa273400d6da969f
+      spriteId: 2a65e4fb3b212aa44a4c9badee942816
     - name: Lemon walking_Frame_3
       frameIndex: 3
       cellRect:
@@ -473,7 +441,7 @@ ScriptedImporter:
         y: 0
         width: 91
         height: 64
-      spriteId: cf164ea3f07dffb46a73c27b9fbb7052
+      spriteId: 00957b6d82da8c14b929fe49419db3a9
     - name: Lemon walking_Frame_4
       frameIndex: 4
       cellRect:
@@ -481,7 +449,7 @@ ScriptedImporter:
         y: 0
         width: 95
         height: 64
-      spriteId: ad42a343300b07a43b00251e8c97c0bf
+      spriteId: ee632a262f40bc94994ae8002a839819
     - name: Lemon walking_Frame_5
       frameIndex: 5
       cellRect:
@@ -489,7 +457,7 @@ ScriptedImporter:
         y: 0
         width: 97
         height: 64
-      spriteId: 71c50344c48c49144b755790ad847409
+      spriteId: ce30571cc7a6fc641b922288b1d9b5d0
     - name: Lemon walking_Frame_6
       frameIndex: 6
       cellRect:
@@ -497,15 +465,47 @@ ScriptedImporter:
         y: 0
         width: 94
         height: 64
-      spriteId: 7654f922f12963346a27deda7be5f3dd
+      spriteId: 928e8aaaa8494db488adab1bf7c3ef62
     - name: Lemon walking_Frame_7
       frameIndex: 7
+      cellRect:
+        x: 11
+        y: 0
+        width: 88
+        height: 64
+      spriteId: 18397d997407bca49b7741541b25e20d
+    - name: Lemon walking_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 13
+        y: 0
+        width: 86
+        height: 64
+      spriteId: 2ffc94c58dd90ac4ab84fde6d37c380d
+    - name: Lemon walking_Frame_9
+      frameIndex: 9
       cellRect:
         x: 10
         y: 0
         width: 89
         height: 64
-      spriteId: 6ee931fda7f04374cb1fa3d8a37703e4
+      spriteId: 0077ea422bdbf4644b1e8e362851132b
+    - name: Lemon walking_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 6
+        y: 0
+        width: 93
+        height: 64
+      spriteId: 4360ebdab58c2dd4cb0d8dfc32faa2ab
+    - name: Lemon walking_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 0
+        width: 93
+        height: 64
+      spriteId: fd529e342de45ff42b6b397ec20e64a8
     - name: Lemon walking_Frame_12
       frameIndex: 12
       cellRect:
@@ -513,7 +513,7 @@ ScriptedImporter:
         y: 0
         width: 95
         height: 64
-      spriteId: e2cd50efaf958c346ac61ee8bf031faf
+      spriteId: 9f5678a4e1bd6344f990853ab94ac859
     - name: Lemon walking_Frame_13
       frameIndex: 13
       cellRect:
@@ -521,10 +521,58 @@ ScriptedImporter:
         y: 0
         width: 99
         height: 64
-      spriteId: a473a3b02f3a96343a7342e3b2ea04b4
+      spriteId: 77de42fa055786349bb22c4b622dd8a4
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
 
 public class MouseClickMovement : MonoBehaviour
 {
-public float speed = 10f;
+[SerializeField]
+private float speed = 10f;
 public Vector2 lastClickedPos;
 bool moving;
-
     // Start is called before the first frame update
     void Start()
     {
