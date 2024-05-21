@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3626932112757104011}
   - component: {fileID: 3714536171344059210}
   - component: {fileID: 4584001596389868311}
-  - component: {fileID: 7208478095145318498}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -104,29 +103,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7208478095145318498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953811083739300545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55e25b500c8f0141bc26bed5fb25640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueLines:
-  - Hello!! I'm Lemon
-  - At least I think??
-  - I mean that's what my mom says to try to get my attention...
-  dialogueText: {fileID: 3724887101960961521}
-  cinBars: {fileID: 2548305425880487538}
-  dialogueRect: {fileID: 3288772396476607742}
-  fadeInTime: 0.25
-  fadeOutTime: 0.5
-  dialogueGroup: {fileID: 6625636492701462927}
-  cameraZoom: {fileID: 0}
 --- !u!1 &3909801988327610878
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello!! I'm Lemon~
+  m_text: I love you!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 355606bcaef82ed4cb475753a7109f0a, type: 2}
   m_sharedMaterial: {fileID: -513292275919259205, guid: 355606bcaef82ed4cb475753a7109f0a, type: 2}
@@ -555,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -75}
+  m_AnchoredPosition: {x: 0, y: -75.00001}
   m_SizeDelta: {x: 640, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5336355212005570021

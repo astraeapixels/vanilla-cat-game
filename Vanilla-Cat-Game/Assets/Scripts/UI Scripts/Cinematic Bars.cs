@@ -5,7 +5,7 @@ using DG.Tweening;
 public class CinematicBars : MonoBehaviour
 {
     [SerializeField] private RectTransform topBar, bottomBar;
-     [SerializeField] private float fadeInTime;
+    [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private CanvasGroup cinematicBarsGroup;
     

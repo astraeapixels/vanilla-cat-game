@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-using System;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -18,40 +17,37 @@ public class UIDialoguePrefab : MonoBehaviour
     private float typingTime = 0.05f;
     public CameraZoomController cameraZoom;
 
-    public delegate void MyDialogueDelagate(string eventName);
-    MyDialogueDelagate myDelagate;
+    public delegate void ActivateDialogue();
+    public event ActivateDialogue DialoguePlayed;
     
 
 
     // Start is called before the first frame update
     void Update()
     {
-        myDelagate = TriggerDialogue;
-        myDelagate("Start Dialogue");
+        
+        DialoguePlayed?.Invoke();
     }
 
     
-    public void TriggerDialogue(string eventName)
+    public void TriggerDialogue()
     {
-        // if (eventName == "Start Dialogue")
-        // {
-            if(Input.GetMouseButtonDown(0))
-            {
-                if(!didDialoguePlay)
-                {  
-                    cinBars.ShowBars();
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(!didDialoguePlay)
+            {  
+                cinBars.ShowBars();
 
-                    StartDialogue();
-                }else if(dialogueText.text == dialogueLines[stringIndex])
-                {
-                    NextLineInDialogue();
-                }else
-                {
-                    StopAllCoroutines();
-                    dialogueText.text = dialogueLines[stringIndex];
-                }
+                StartDialogue();
+            }else if(dialogueText.text == dialogueLines[stringIndex])
+            {
+                NextLineInDialogue();
+            }else
+            {
+                StopAllCoroutines();
+                dialogueText.text = dialogueLines[stringIndex];
             }
-        //}
+        }
     }
 
     private void StartDialogue()
@@ -91,7 +87,7 @@ public class UIDialoguePrefab : MonoBehaviour
             yield return new WaitForSecondsRealtime(typingTime);
         }
     }
-
+   
     private void PanelFadeIn(){
         dialogueGroup.alpha = 1f;
         dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
