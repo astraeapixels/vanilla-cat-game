@@ -8,19 +8,19 @@ public class CinematicBars : MonoBehaviour
 
         public void ShowBars(){
         topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
-        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 162f), fadeTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 162f), fadeTime, ease: Ease.InOutQuint, 1);
 
         bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
-        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -162f), fadeTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -162f), fadeTime, ease: Ease.InOutQuint, 1);
         
     }
 
         public void HideBars()
         {
         topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
-        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 198f), fadeTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 198f), fadeTime, ease: Ease.InOutQuint, 1);
 
         bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
-        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -198f), fadeTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -198f), fadeTime, ease: Ease.InOutQuint, 1);
         }
     }

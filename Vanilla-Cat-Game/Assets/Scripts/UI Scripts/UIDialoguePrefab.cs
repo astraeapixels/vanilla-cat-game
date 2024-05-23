@@ -86,11 +86,11 @@ public class UIDialoguePrefab : MonoBehaviour
    
     private void PanelFadeIn(){
         dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, ease: Ease.InOutQuint, 1);
     }
 
         private void PanelFadeOut(){
         dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, ease: Ease.InOutQuint, 1);
     }
 }
