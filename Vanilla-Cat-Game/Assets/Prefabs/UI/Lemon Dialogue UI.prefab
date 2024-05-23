@@ -637,9 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBar: {fileID: 5092985543374723089}
   bottomBar: {fileID: 7564021476120189150}
-  fadeInTime: 0.15
-  fadeOutTime: 0.15
-  cinematicBarsGroup: {fileID: 2698902211031972713}
+  fadeTime: 0
 --- !u!225 &2698902211031972713
 CanvasGroup:
   m_ObjectHideFlags: 0

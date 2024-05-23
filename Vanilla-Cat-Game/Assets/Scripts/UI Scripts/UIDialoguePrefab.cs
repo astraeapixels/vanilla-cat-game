@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using DG.Tweening;
+using PrimeTween;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -11,7 +11,6 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] private CanvasGroup dialogueGroup;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = 0.05f;
@@ -20,12 +19,9 @@ public class UIDialoguePrefab : MonoBehaviour
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
     
-
-
     // Start is called before the first frame update
     void Update()
     {
-        
         DialoguePlayed?.Invoke();
     }
 
@@ -89,16 +85,12 @@ public class UIDialoguePrefab : MonoBehaviour
     }
    
     private void PanelFadeIn(){
-        dialogueGroup.alpha = 1f;
         dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
-        dialogueRect.DOAnchorPos(new Vector2(0f, 75f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        dialogueGroup.DOFade(1, fadeInTime);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, Ease.InOutQuint, 1);
     }
 
         private void PanelFadeOut(){
-        dialogueGroup.alpha = 1f;
         dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
-        dialogueRect.DOAnchorPos(new Vector2(0f, -75f), fadeOutTime, false).SetEase(Ease.InOutQuint);
-        dialogueGroup.DOFade(1, fadeOutTime);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, Ease.InOutQuint, 1);
     }
 }

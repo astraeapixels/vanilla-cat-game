@@ -1,40 +1,26 @@
 using UnityEngine;
-using DG.Tweening;
-
+using PrimeTween;
 
 public class CinematicBars : MonoBehaviour
 {
     [SerializeField] private RectTransform topBar, bottomBar;
-    [SerializeField] private float fadeInTime;
-    [SerializeField] private float fadeOutTime;
-    [SerializeField] private CanvasGroup cinematicBarsGroup;
-    
-    private void Awake()
-    {
-    }
+    [SerializeField] private float fadeTime;
 
         public void ShowBars(){
-        cinematicBarsGroup.alpha = 1f;
         topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
-        topBar.DOAnchorPos(new Vector2(0f, 162f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        cinematicBarsGroup.DOFade(1, fadeInTime);
+        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 162f), fadeTime, Ease.InOutQuint, 1);
 
-        cinematicBarsGroup.alpha = 1f;
         bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
-        bottomBar.DOAnchorPos(new Vector2(0f, -162f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        cinematicBarsGroup.DOFade(1, fadeInTime);
+        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -162f), fadeTime, Ease.InOutQuint, 1);
+        
     }
 
         public void HideBars()
         {
-        cinematicBarsGroup.alpha = 1f;
         topBar.transform.localPosition = new Vector3(0f, 198f, 0f);
-        topBar.DOAnchorPos(new Vector2(0f, 198f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        cinematicBarsGroup.DOFade(1, fadeInTime);
+        Tween.UIAnchoredPosition(topBar, new Vector2(0f, 198f), fadeTime, Ease.InOutQuint, 1);
 
-        cinematicBarsGroup.alpha = 1f;
         bottomBar.transform.localPosition = new Vector3(0f, -198f, 0f);
-        bottomBar.DOAnchorPos(new Vector2(0f, -198f), fadeInTime, false).SetEase(Ease.InOutQuint);
-        cinematicBarsGroup.DOFade(1, fadeInTime);
+        Tween.UIAnchoredPosition(bottomBar, new Vector2(0f, -198f), fadeTime, Ease.InOutQuint, 1);
         }
     }
