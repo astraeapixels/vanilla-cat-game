@@ -1,4 +1,4 @@
-using System.Collections;
+using Tween = PrimeTween.Tween;
 using UnityEngine;
 using TMPro;
 using PrimeTween;
@@ -13,13 +13,12 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeOutTime;
     private bool didDialoguePlay;
     private int stringIndex;
-    private float typingTime = 0.05f;
+    private float typingTime = .20f;
     public CameraZoomController cameraZoom;
 
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
     
-    // Start is called before the first frame update
     void Update()
     {
         DialoguePlayed?.Invoke();
@@ -40,7 +39,6 @@ public class UIDialoguePrefab : MonoBehaviour
                 NextLineInDialogue();
             }else
             {
-                StopAllCoroutines();
                 dialogueText.text = dialogueLines[stringIndex];
             }
         }
@@ -53,14 +51,14 @@ public class UIDialoguePrefab : MonoBehaviour
         PanelFadeIn();
         stringIndex = 0;
         Time.timeScale = .5f;
-        StartCoroutine(ShowLine());
+        ShowLine(dialogueText, dialogueLines, stringIndex, typingTime);
     }
     private void NextLineInDialogue()
     {
         stringIndex++;
         if(stringIndex < dialogueLines.Length)
         {
-            StartCoroutine(ShowLine());
+            ShowLine(dialogueText, dialogueLines, stringIndex, typingTime);
         }else
         {
             didDialoguePlay = false;
@@ -74,23 +72,22 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         dialogueLines = newLines;
     }
-    private IEnumerator ShowLine()
+    private static Tween ShowLine(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float charsPerSecond)
     {
-        dialogueText.text = string.Empty;
-        foreach(char ch in dialogueLines[stringIndex])
-        {
-            dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(typingTime);
-        }
+        _dialogueText.text = _dialogueLines[_stringIndex];
+        int characterCount = _dialogueLines[_stringIndex].Length;
+        float duration = charsPerSecond;
+        return Tween.TextMaxVisibleCharacters(_dialogueText, 0, characterCount, duration, Ease.Linear);
+
     }
    
     private void PanelFadeIn(){
         dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, ease: Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, Ease.InOutQuint, 1);
     }
 
         private void PanelFadeOut(){
         dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, ease: Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, Ease.InOutQuint, 1);
     }
 }

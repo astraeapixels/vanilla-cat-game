@@ -273,14 +273,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14b34bf26a4f8ce4cb5454590c28cdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCamera: {fileID: 519420031}
-  zoomIncrement: 1
-  currentZoomLevel: 5
 --- !u!1 &1620968950
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 8859062839623085402, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
       propertyPath: m_Name
       value: DialogueEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948437605177903054, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+      propertyPath: newLines.Array.data[0]
+      value: Hello there!!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
