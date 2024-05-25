@@ -68,8 +68,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3148e2b38438397469a5e4bc55d897a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueLines: []
+  dialogueText: {fileID: 0}
+  cinBars: {fileID: 0}
+  dialogueRect: {fileID: 0}
+  fadeInTime: 0
+  fadeOutTime: 0
+  cameraZoom: {fileID: 0}
   newLines:
-  - Hi
+  - Hello there!!
   - my name is Lemon
   - so happy to meet you!!
   dialogueManager: {fileID: 24874656197324311}

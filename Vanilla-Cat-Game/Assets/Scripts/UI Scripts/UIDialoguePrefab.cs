@@ -11,10 +11,10 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
+    [SerializeField] private CameraZoomController cameraZoom;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
-    public CameraZoomController cameraZoom;
 
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
@@ -24,7 +24,6 @@ public class UIDialoguePrefab : MonoBehaviour
         DialoguePlayed?.Invoke();
     }
 
-    
     public void TriggerDialogue()
     {
         if(Input.GetMouseButtonDown(0))
@@ -53,6 +52,7 @@ public class UIDialoguePrefab : MonoBehaviour
         Time.timeScale = .5f;
         ShowLine(dialogueText, dialogueLines, stringIndex, typingTime);
     }
+
     private void NextLineInDialogue()
     {
         stringIndex++;
@@ -72,21 +72,23 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         dialogueLines = newLines;
     }
+
     private static Tween ShowLine(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float charsPerSecond)
     {
         _dialogueText.text = _dialogueLines[_stringIndex];
         int characterCount = _dialogueLines[_stringIndex].Length;
         float duration = charsPerSecond;
         return Tween.TextMaxVisibleCharacters(_dialogueText, 0, characterCount, duration, Ease.Linear);
-
     }
-   
-    private void PanelFadeIn(){
+    
+    private void PanelFadeIn()
+    {
         dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
         Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, Ease.InOutQuint, 1);
     }
 
-        private void PanelFadeOut(){
+    private void PanelFadeOut()
+    {
         dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
         Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, Ease.InOutQuint, 1);
     }

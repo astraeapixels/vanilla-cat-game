@@ -3,7 +3,7 @@ using UnityEngine;
 public class NewDialogueScript : MonoBehaviour
 {
     [SerializeField,TextArea(1,6)] string[] newLines;
-    public UIDialoguePrefab dialogueManager;
+    [SerializeField] UIDialoguePrefab dialogueManager;
 
 
     void Start()
@@ -12,9 +12,9 @@ public class NewDialogueScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void NewScript(string lineOne, string lineTwo, string lineThree)
+    public void NewScript(string lineOne, string lineTwo, string lineThree, string lineFour, string lineFive, string lineSix)
     {
-        newLines = new string[] { lineOne, lineTwo, lineThree };
+        newLines = new string[] { lineOne, lineTwo, lineThree, lineFour, lineFive, lineSix };
     }
 
 }
