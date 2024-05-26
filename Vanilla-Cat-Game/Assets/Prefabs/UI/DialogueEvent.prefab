@@ -72,6 +72,7 @@ MonoBehaviour:
   - Hello there!!
   - my name is Lemon
   - so happy to meet you!!
+  - Please come and visit me again!!
   dialogueManager: {fileID: 24874656197324311}
 --- !u!114 &6359186716335353371
 MonoBehaviour:
