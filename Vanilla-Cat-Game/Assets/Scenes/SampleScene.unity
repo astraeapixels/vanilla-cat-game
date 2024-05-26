@@ -458,10 +458,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueEvent
       objectReference: {fileID: 0}
-    - target: {fileID: 8948437605177903054, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
-      propertyPath: newLines.Array.data[0]
-      value: Hello there!!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -487,9 +483,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -74
       objectReference: {fileID: 0}
+    - target: {fileID: 3724887101960961521, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_margin.z
+      value: -10.952675
+      objectReference: {fileID: 0}
     - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_Name
       value: Lemon Dialogue UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881898756078631411, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 218.474
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881898756078631411, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.737064
       objectReference: {fileID: 0}
     - target: {fileID: 6157050384909708638, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_AnchoredPosition.x
