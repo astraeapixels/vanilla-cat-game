@@ -12,15 +12,8 @@ public class EmotionAndDialogueRelationships : ScriptableObject
         dialogueTexts = new string[emotionType.Length];
         for (int i = 0; i < emotionType.Length; i++)
         {
-            dialogueTexts[i] = "" + emotionType[i];
-        }
-    }
-
-    public void InitializeEmoticonImages()
-    {
-        for(int i = 0; i < emotionType.Length; i++)
-        {   
-            emoticonsImages[i] = Resources.Load<Sprite>("Assets/Sprites/UI/Lemon Dialogue Portrait Sprite 1.png" + emotionType[i]);
+            dialogueTexts[i] = "";
+            emoticonsImages[i] = Resources.Load<Sprite>("Assets/Sprites/UI/Lemon Dialogue Portrait Sprite" +(i + 1) + ".png" + emotionType[i]);
         }
     }
 }
