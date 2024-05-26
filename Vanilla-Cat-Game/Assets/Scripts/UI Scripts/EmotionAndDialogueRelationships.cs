@@ -12,7 +12,7 @@ public class EmotionAndDialogueRelationships : ScriptableObject
         dialogueTexts = new string[emotionType.Length];
         for (int i = 0; i < emotionType.Length; i++)
         {
-            dialogueTexts[i] = "Hi, my name is Lemon" + emotionType[i];
+            dialogueTexts[i] = "" + emotionType[i];
         }
     }
 
