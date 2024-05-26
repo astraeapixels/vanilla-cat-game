@@ -50,7 +50,7 @@ public class UIDialoguePrefab : MonoBehaviour
         PanelFadeIn();
         stringIndex = 0;
         Time.timeScale = .5f;
-        ShowLine(dialogueText, dialogueLines, stringIndex, typingTime);
+        ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
     }
 
     private void NextLineInDialogue()
@@ -58,7 +58,7 @@ public class UIDialoguePrefab : MonoBehaviour
         stringIndex++;
         if(stringIndex < dialogueLines.Length)
         {
-            ShowLine(dialogueText, dialogueLines, stringIndex, typingTime);
+            ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
         }else
         {
             didDialoguePlay = false;
@@ -73,7 +73,7 @@ public class UIDialoguePrefab : MonoBehaviour
         dialogueLines = newLines;
     }
 
-    private static Tween ShowLine(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float charsPerSecond)
+    private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float charsPerSecond)
     {
         _dialogueText.text = _dialogueLines[_stringIndex];
         int characterCount = _dialogueLines[_stringIndex].Length;
@@ -83,13 +83,13 @@ public class UIDialoguePrefab : MonoBehaviour
     
     private void PanelFadeIn()
     {
-        dialogueRect.transform.localPosition = new Vector3(0f, -180f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 75f), fadeInTime, Ease.InOutQuint, 1);
+        dialogueRect.transform.localPosition = new Vector3(0f, -181f, 0f);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 74f), fadeInTime, Ease.InOutQuint, 1);
     }
 
     private void PanelFadeOut()
     {
-        dialogueRect.transform.localPosition = new Vector3(0f, -105f, 0f);
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -75f), fadeOutTime, Ease.InOutQuint, 1);
+        dialogueRect.transform.localPosition = new Vector3(0f, -101f, 0f);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -74f), fadeOutTime, Ease.InOutQuint, 1);
     }
 }
