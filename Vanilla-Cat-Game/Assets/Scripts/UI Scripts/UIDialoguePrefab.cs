@@ -23,7 +23,7 @@ public class UIDialoguePrefab : MonoBehaviour
         DialoguePlayed?.Invoke();
     }
 
-        public void PlayerInput()
+    public void PlayerInput()
     {
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -34,7 +34,7 @@ public class UIDialoguePrefab : MonoBehaviour
         }
     }
 
-    public void TriggerDialogue()
+    private void TriggerDialogue()
     {
         {
             if(!didDialoguePlay)
