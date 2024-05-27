@@ -11,7 +11,6 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] private CameraZoomController cameraZoom;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -26,7 +25,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
         public void PlayerInput()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             TriggerDialogue();
         }else if(Input.GetKeyDown(KeyCode.Escape))
@@ -56,7 +55,6 @@ public class UIDialoguePrefab : MonoBehaviour
     private void StartDialogue()
     {
         didDialoguePlay = true;
-        cameraZoom.OnDialogueEvent();
         PanelFadeIn();
         stringIndex = 0;
         Time.timeScale = .5f;
