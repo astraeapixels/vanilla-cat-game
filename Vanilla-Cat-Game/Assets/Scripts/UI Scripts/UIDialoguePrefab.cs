@@ -24,9 +24,19 @@ public class UIDialoguePrefab : MonoBehaviour
         DialoguePlayed?.Invoke();
     }
 
-    public void TriggerDialogue()
+        public void PlayerInput()
     {
         if(Input.GetMouseButtonDown(0))
+        {
+            TriggerDialogue();
+        }else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndDialogue();
+        }
+    }
+
+    public void TriggerDialogue()
+    {
         {
             if(!didDialoguePlay)
             {  
@@ -61,11 +71,16 @@ public class UIDialoguePrefab : MonoBehaviour
             ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
         }else
         {
-            didDialoguePlay = false;
-            cinBars.HideBars();
-            PanelFadeOut();
-            Time.timeScale = 1f;
+            EndDialogue();
         }
+    }
+
+    private void EndDialogue()
+    {
+        didDialoguePlay = false;
+        cinBars.HideBars();
+        PanelFadeOut();
+        Time.timeScale = 1f;
     }
 
     public void SetDialogueLines(string[] newLines)
