@@ -12,7 +12,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] private Button exitButton;
+    //[SerializeField] private Button exitButton;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;

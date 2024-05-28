@@ -55,7 +55,7 @@ MonoBehaviour:
   dialogueRect: {fileID: 0}
   fadeInTime: 0.25
   fadeOutTime: 0.5
-  cameraZoom: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!114 &8948437605177903054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,5 +92,5 @@ MonoBehaviour:
   dialogueRect: {fileID: 0}
   fadeInTime: 0.25
   fadeOutTime: 0.5
-  cameraZoom: {fileID: 0}
+  exitButton: {fileID: 0}
   dialogueManager: {fileID: 24874656197324311}
