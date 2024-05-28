@@ -12,7 +12,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] private Button exitButton;
+    [SerializeField] Button exitButton;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -20,9 +20,9 @@ public class UIDialoguePrefab : MonoBehaviour
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
 
-    public void Start()
-    {
-        exitButton.onClick.AddListener(OnExitButtonPress);
+    void Start()
+    {   
+        exitButton.onClick.AddListener(EndDialogue);
     }
     void Update()
     {
@@ -31,19 +31,13 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void PlayerInput()
     {
-        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             TriggerDialogue();
         }else if(Input.GetKeyDown(KeyCode.Escape))
         {
             EndDialogue();
         }
-    }
-
-    public void OnExitButtonPress()
-    {
-  
-        EndDialogue();
     }
 
     private void TriggerDialogue()
@@ -82,7 +76,7 @@ public class UIDialoguePrefab : MonoBehaviour
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         didDialoguePlay = false;
         cinBars.HideBars();
