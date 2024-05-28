@@ -12,7 +12,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    //[SerializeField] private Button exitButton;
+    [SerializeField] private Button exitButton;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -22,7 +22,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void Start()
     {
-        
+        exitButton.onClick.AddListener(OnExitButtonPress);
     }
     void Update()
     {
@@ -40,21 +40,24 @@ public class UIDialoguePrefab : MonoBehaviour
         }
     }
 
+    public void OnExitButtonPress()
+    {
+  
+        EndDialogue();
+    }
+
     private void TriggerDialogue()
     {
+        if(!didDialoguePlay)
+        {  
+            cinBars.ShowBars();
+            StartDialogue();
+        }else if(dialogueText.text == dialogueLines[stringIndex])
         {
-            if(!didDialoguePlay)
-            {  
-                cinBars.ShowBars();
-
-                StartDialogue();
-            }else if(dialogueText.text == dialogueLines[stringIndex])
-            {
-                NextLineInDialogue();
-            }else
-            {
-                dialogueText.text = dialogueLines[stringIndex];
-            }
+            NextLineInDialogue();
+        }else
+        {
+            dialogueText.text = dialogueLines[stringIndex];
         }
     }
 

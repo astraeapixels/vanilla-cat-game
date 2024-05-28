@@ -290,6 +290,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCamera: {fileID: 519420031}
+--- !u!114 &721517506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6359186716335353371, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+  m_PrefabInstance: {fileID: 7517447693444673209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b967043a12fb24e8f9e298da58f8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &721517508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 24874656197324311, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+  m_PrefabInstance: {fileID: 7517447693444673209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55e25b500c8f0141bc26bed5fb25640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!223 &1584798238 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3626932112757104011, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+  m_PrefabInstance: {fileID: 9063928662097145060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1620968950
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +436,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 184831297}
+    - target: {fileID: 24874656197324311, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+      propertyPath: lemonDialogue
+      value: 
+      objectReference: {fileID: 1584798238}
     - target: {fileID: 6359186716335353371, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
       propertyPath: cinBars
       value: 
@@ -425,6 +456,10 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 184831297}
+    - target: {fileID: 6359186716335353371, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 721517508}
     - target: {fileID: 7822635790809236032, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960
@@ -469,6 +504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueEvent
       objectReference: {fileID: 0}
+    - target: {fileID: 8859062839623085402, guid: b829a6ee9525ed446a6d6ce430280608, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -482,13 +521,105 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2548305425880487538, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: fadeTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698902211031972713, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8da762396cc2dd44fae0d352dddc9a0c, type: 3}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 721517506}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnExitButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIDialoguePrefab, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953811083739300545, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311971544456901591, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626932112757104011, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 3626932112757104011, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626932112757104011, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714536171344059210, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909801988327610878, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338352398125072503, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_Name
       value: Lemon Dialogue UI
       objectReference: {fileID: 0}
     - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184581607606973894, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609356416609422723, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7414126786321578547, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_LocalPosition.x
@@ -529,6 +660,14 @@ PrefabInstance:
     - target: {fileID: 7414126786321578547, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852087898498955631, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841811505597395981, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

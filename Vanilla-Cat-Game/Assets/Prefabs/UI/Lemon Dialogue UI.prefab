@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3626932112757104011}
   - component: {fileID: 3714536171344059210}
   - component: {fileID: 4584001596389868311}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ Canvas:
   m_GameObject: {fileID: 2953811083739300545}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3714536171344059210
 MonoBehaviour:
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4628418559321563507}
   - component: {fileID: 6780610769109161669}
   - component: {fileID: 2864598605432242355}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ExitDialogueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 8da762396cc2dd44fae0d352dddc9a0c, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -222,7 +222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6780610769109161669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIDialoguePrefab, Assembly-CSharp
+        m_MethodName: OnExitButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3909801988327610878
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +246,7 @@ GameObject:
   - component: {fileID: 7564021476120189150}
   - component: {fileID: 4627210838339120044}
   - component: {fileID: 9094895976107999108}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BottomBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +321,7 @@ GameObject:
   - component: {fileID: 5092985543374723089}
   - component: {fileID: 3767060641502577014}
   - component: {fileID: 8197455329622406217}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7414126786321578547}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lemon Dialogue UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +428,7 @@ GameObject:
   - component: {fileID: 6157050384909708638}
   - component: {fileID: 6195177174781530733}
   - component: {fileID: 7180177803581300700}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lemon Emoticon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +503,7 @@ GameObject:
   - component: {fileID: 5881898756078631411}
   - component: {fileID: 6556812582510652548}
   - component: {fileID: 3724887101960961521}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +638,7 @@ GameObject:
   - component: {fileID: 5336355212005570021}
   - component: {fileID: 5423698107677570043}
   - component: {fileID: 6625636492701462927}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +728,7 @@ GameObject:
   - component: {fileID: 4863286529685290097}
   - component: {fileID: 2548305425880487538}
   - component: {fileID: 2698902211031972713}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cinematic Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBar: {fileID: 5092985543374723089}
   bottomBar: {fileID: 7564021476120189150}
-  fadeTime: 0
+  fadeTime: 0.15
 --- !u!225 &2698902211031972713
 CanvasGroup:
   m_ObjectHideFlags: 0
