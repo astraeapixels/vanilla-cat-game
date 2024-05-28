@@ -19,8 +19,10 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
+
     public void Start()
     {
+        
     }
     void Update()
     {
