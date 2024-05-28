@@ -2,7 +2,6 @@ using Tween = PrimeTween.Tween;
 using UnityEngine;
 using TMPro;
 using PrimeTween;
-using UnityEngine.UI;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
-    [SerializeField] Button exitButton;
+
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -22,7 +21,6 @@ public class UIDialoguePrefab : MonoBehaviour
 
     void Start()
     {   
-        exitButton.onClick.AddListener(EndDialogue);
     }
     void Update()
     {
@@ -31,7 +29,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void PlayerInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             TriggerDialogue();
         }else if(Input.GetKeyDown(KeyCode.Escape))
