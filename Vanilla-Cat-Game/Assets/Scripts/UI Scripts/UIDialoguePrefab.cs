@@ -13,7 +13,6 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
-    [SerializeField] GameObject dialoguePanel;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -22,7 +21,6 @@ public class UIDialoguePrefab : MonoBehaviour
     public event ActivateDialogue DialoguePlayed;
     public void Start()
     {
-        dialoguePanel.SetActive(false);
     }
     void Update()
     {
@@ -36,7 +34,7 @@ public class UIDialoguePrefab : MonoBehaviour
             TriggerDialogue();
         }else if(Input.GetKeyDown(KeyCode.Escape))
         {
-            dialoguePanel.SetActive(false); 
+            EndDialogue();
         }
     }
 
@@ -45,7 +43,6 @@ public class UIDialoguePrefab : MonoBehaviour
         {
             if(!didDialoguePlay)
             {  
-                dialoguePanel.SetActive(true);
                 cinBars.ShowBars();
 
                 StartDialogue();
