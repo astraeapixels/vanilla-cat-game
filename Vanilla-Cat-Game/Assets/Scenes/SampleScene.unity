@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -265,6 +266,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d7ad249ea5fbc4b9f93e5a1cb4aca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
+--- !u!1 &817144012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2953811083739300545, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+  m_PrefabInstance: {fileID: 9063928662097145060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &817144017
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817144012}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1211244242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7852087898498955631, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
@@ -540,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitDialogue
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -548,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ExitButtonScript, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -556,7 +590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2864598605432242355, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -570,6 +604,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3626932112757104011, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_Name
       value: Lemon Dialogue UI
@@ -618,11 +656,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: DialoguePanel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2698902211031972713, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8715963023814646906, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+    - {fileID: 3311971544456901591, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2953811083739300545, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 817144017}
   m_SourcePrefab: {fileID: 100100000, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
