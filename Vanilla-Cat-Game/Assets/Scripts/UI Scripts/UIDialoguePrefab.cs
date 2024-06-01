@@ -2,6 +2,7 @@ using Tween = PrimeTween.Tween;
 using UnityEngine;
 using TMPro;
 using PrimeTween;
+using UnityEngine.UI;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
+    [SerializeField] private Button exitButton;
 
     private bool didDialoguePlay;
     private int stringIndex;
@@ -21,6 +23,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     void Start()
     {   
+        exitButton.onClick.AddListener(ExitDialogue);
     }
     void Update()
     {
@@ -31,11 +34,17 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            TriggerDialogue();
-        }else if(Input.GetKeyDown(KeyCode.Escape))
+        TriggerDialogue();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape))
         {
             EndDialogue();
         }
+    }
+
+    public void ExitDialogue()
+    {
+        EndDialogue();
     }
 
     private void TriggerDialogue()
@@ -43,11 +52,13 @@ public class UIDialoguePrefab : MonoBehaviour
         if(!didDialoguePlay)
         {  
             cinBars.ShowBars();
-            StartDialogue();
-        }else if(dialogueText.text == dialogueLines[stringIndex])
+            StartDialogue();       
+        }
+        else if(dialogueText.text == dialogueLines[stringIndex])
         {
             NextLineInDialogue();
-        }else
+        }
+        else
         {
             dialogueText.text = dialogueLines[stringIndex];
         }
@@ -68,7 +79,8 @@ public class UIDialoguePrefab : MonoBehaviour
         if(stringIndex < dialogueLines.Length)
         {
             ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
-        }else
+        }
+        else
         {
             EndDialogue();
         }
