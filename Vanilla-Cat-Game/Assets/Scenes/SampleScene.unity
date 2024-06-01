@@ -493,14 +493,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3951904437980188579, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3951904437980188579, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
-      propertyPath: m_IgnoreParentGroups
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4657931388769834412, guid: 986c3e20db48c354288d0f683b75f200, type: 3}
       propertyPath: m_Name
       value: Lemon Dialogue UI
