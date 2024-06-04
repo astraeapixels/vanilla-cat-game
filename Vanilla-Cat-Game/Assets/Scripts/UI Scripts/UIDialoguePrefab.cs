@@ -61,13 +61,14 @@ public class UIDialoguePrefab : MonoBehaviour
         else
         {
             dialogueText.text = dialogueLines[stringIndex];
+            Tween.StopAll(dialogueText);
         }
     }
 
     private void StartDialogue()
     {
         didDialoguePlay = true;
-        PanelFadeIn();
+        PanelEnterAndExit(74f, fadeInTime);
         stringIndex = 0;
         Time.timeScale = .5f;
         ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
@@ -90,7 +91,7 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         didDialoguePlay = false;
         cinBars.HideBars();
-        PanelFadeOut();
+        PanelEnterAndExit(-74f, fadeOutTime);
         Time.timeScale = 1f;
     }
 
@@ -101,19 +102,14 @@ public class UIDialoguePrefab : MonoBehaviour
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
     {
-        _dialogueText.text = _dialogueLines[_stringIndex];
+        _dialogueText.SetText(_dialogueLines[_stringIndex]);
         int characterCount = _dialogueLines[_stringIndex].Length;
         float duration = _typingTime;
         return Tween.TextMaxVisibleCharacters(_dialogueText, 0, characterCount, duration, Ease.Linear);
     }
     
-    private void PanelFadeIn()
+    private void PanelEnterAndExit(float _panelYPos, float _fadeTime)
     {
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, 74f), fadeInTime, Ease.InOutQuint, 1);
-    }
-
-    private void PanelFadeOut()
-    {
-        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, -74f), fadeOutTime, Ease.InOutQuint, 1);
+        Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, _panelYPos), _fadeTime, Ease.InOutQuint, 1);
     }
 }

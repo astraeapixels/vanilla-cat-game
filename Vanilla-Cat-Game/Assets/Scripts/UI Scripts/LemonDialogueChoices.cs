@@ -3,7 +3,6 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Input = UnityEngine.Input;
 
 public class LemonDialogueChoices : MonoBehaviour
 {
@@ -18,25 +17,19 @@ public class LemonDialogueChoices : MonoBehaviour
 
     private List<LemonChoicesManager> choiceManager = new List<LemonChoicesManager>();
 
-    // private void RemoveChoices()
-    // {
-    //     foreach(LemonChoicesManager c in choiceManager)
-    //     {
-    //         Destroy(c.gameObject);
-
-    //         choiceManager.Clear();
-    //     }
-    // }
-    void Start()
+    private void RemoveChoices()
     {
-        questionText.text = question.questionAsked;
+        foreach(LemonChoicesManager c in choiceManager)
+        {
+            Destroy(c.gameObject);
+
+            choiceManager.Clear();
+        }
     }
+
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
             Initialize();
-        }
     }
 
     private void Initialize()
@@ -45,9 +38,13 @@ public class LemonDialogueChoices : MonoBehaviour
         {
             StartQuestions();
         }
-        else
+        else if(lineIndex == question.choices.Length)
         {
             ShowChoices();
+        }else
+        {
+            Tween.StopAll(questionText);
+            RemoveChoices();
         }
     }
     private void ShowChoices()
@@ -57,8 +54,8 @@ public class LemonDialogueChoices : MonoBehaviour
         {
             LemonChoicesManager c = LemonChoicesManager.AddChoiceButton(choiceButton, question.choices[lineIndex], lineIndex);
             choiceManager.Add(c);
+            ShowLines(questionText, question.questionAsked, typingTime);
         }
-        ShowLines(questionText, question.questionAsked, typingTime);
     }
     private void StartQuestions()
     {
@@ -71,7 +68,7 @@ public class LemonDialogueChoices : MonoBehaviour
 
     private static Tween ShowLines(TMP_Text _questionText, string _question, float _typingTime)
     {
-        _questionText.text = string.Empty;
+        _questionText.SetText(_question);
         int lineCount = _question.Length;
         float duration = _typingTime;
         return Tween.TextMaxVisibleCharacters(_questionText, 0, lineCount, duration, Ease.Linear);
