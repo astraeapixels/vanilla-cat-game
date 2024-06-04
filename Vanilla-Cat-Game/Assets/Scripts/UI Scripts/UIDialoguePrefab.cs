@@ -91,7 +91,7 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         didDialoguePlay = false;
         cinBars.HideBars();
-        PanelEnterAndExit(-74f, fadeOutTime);
+        PanelEnterAndExit(-74, fadeOutTime);
         Time.timeScale = 1f;
     }
 

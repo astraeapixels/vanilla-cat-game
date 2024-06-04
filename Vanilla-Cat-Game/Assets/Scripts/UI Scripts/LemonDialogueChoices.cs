@@ -43,8 +43,7 @@ public class LemonDialogueChoices : MonoBehaviour
             ShowChoices();
         }else
         {
-            Tween.StopAll(questionText);
-            RemoveChoices();
+            questionText.text = question.questionAsked;
         }
     }
     private void ShowChoices()
@@ -55,6 +54,11 @@ public class LemonDialogueChoices : MonoBehaviour
             LemonChoicesManager c = LemonChoicesManager.AddChoiceButton(choiceButton, question.choices[lineIndex], lineIndex);
             choiceManager.Add(c);
             ShowLines(questionText, question.questionAsked, typingTime);
+        }
+        if(lineIndex == question.choices.Length)
+        {
+            Tween.StopAll(questionText);
+            RemoveChoices();
         }
     }
     private void StartQuestions()
