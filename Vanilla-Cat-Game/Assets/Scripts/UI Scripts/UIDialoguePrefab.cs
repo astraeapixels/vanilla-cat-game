@@ -8,16 +8,15 @@ public class UIDialoguePrefab : MonoBehaviour
 {
     [TextArea(1,6)] public string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Image defaultPortrait;
     [SerializeField] private CinematicBars cinBars;
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
-
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
-
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
 
@@ -34,7 +33,7 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-        TriggerDialogue();
+            TriggerDialogue();
         }
         else if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -75,7 +74,7 @@ public class UIDialoguePrefab : MonoBehaviour
     }
 
     private void NextLineInDialogue()
-    {
+    {   
         stringIndex++;
         if(stringIndex < dialogueLines.Length)
         {
