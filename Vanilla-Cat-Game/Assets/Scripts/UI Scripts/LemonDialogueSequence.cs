@@ -7,15 +7,7 @@ public enum EmotionType {Default, Happy, Sassy, Flirty, Soft, Angry, Confused, S
 public class LemonDialogueSequence : ScriptableObject
 {
     public EmotionType emotionType;
-    public Line[] dialogueLines;
+    public string[] dialogueLines;
     public Question questionsAsked;
     public LemonDialogueSequence nextConversation;
-}
-
-[System.Serializable]
-public struct Line
-{
-    public Character lemon;
-    public string dialogueLines;
-    public EmotionType emotionType;
 }

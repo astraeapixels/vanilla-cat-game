@@ -8,7 +8,6 @@ public class UIDialoguePrefab : MonoBehaviour
 {
     [TextArea(1,6)] public string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private Image defaultPortrait;
     [SerializeField] private CinematicBars cinBars;
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;

@@ -8,12 +8,15 @@ public class LemonDialogueChoices : MonoBehaviour
 {
     [SerializeField] private Question question;
     [SerializeField] private TMP_Text questionText;
-    //[SerializeField] private GameObject lemonQuestionsManager;
     [SerializeField] private Button choiceButton;
     [SerializeField] private LemonsChoice choice;
     private int lineIndex;
     private bool didQuestionStart;
     private float typingTime = .20f;
+
+    public delegate void LemonsChoiceDelegate();
+    public event LemonsChoiceDelegate LemonHasToChoose;
+
 
     private List<LemonChoicesManager> choiceManager = new List<LemonChoicesManager>();
 
@@ -29,10 +32,10 @@ public class LemonDialogueChoices : MonoBehaviour
 
     private void Update()
     {
-            Initialize();
+        LemonHasToChoose.Invoke();
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         if(!didQuestionStart)
         {
