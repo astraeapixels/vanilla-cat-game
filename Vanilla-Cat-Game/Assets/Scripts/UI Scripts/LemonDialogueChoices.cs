@@ -32,7 +32,7 @@ public class LemonDialogueChoices : MonoBehaviour
 
     private void Update()
     {
-        LemonHasToChoose.Invoke();
+        LemonHasToChoose?.Invoke();
     }
 
     public void Initialize()
