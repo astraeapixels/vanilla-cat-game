@@ -13,5 +13,6 @@ public struct LemonsChoice
 {
     [TextArea(1, 6)]
     public string choiceLines;
+    public string text;
     //public Conversation conversation;
 }

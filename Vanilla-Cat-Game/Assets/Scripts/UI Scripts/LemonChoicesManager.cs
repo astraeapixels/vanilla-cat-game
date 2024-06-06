@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class LemonChoicesManager : MonoBehaviour
 {
     public LemonChoicesManager lemonChoicesManager;
+    [SerializeField] private TMP_Text choiceText;
     public LemonsChoice choice;
     //public ConversationChangeEvent conversationChangeEvent;
 
@@ -23,13 +25,11 @@ public class LemonChoicesManager : MonoBehaviour
         return lemonChoicesManager;
     }
 
-    // private void Start() 
-    // {
-    //     if (conversationChangeEvent == null)
-    //         conversationChangeEvent = new ConversationChangeEvent();
+    private void Start() =>
+        // if (conversationChangeEvent == null)
+        //     conversationChangeEvent = new ConversationChangeEvent();
 
-    //     GetComponent<Button>().GetComponentInChildren<Text>().text = choice.text;
-    // }
+        choiceText.text = choiceText.text;
 
     // public void MakeChoice()
     // {

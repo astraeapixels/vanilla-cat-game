@@ -9,7 +9,7 @@ public class LemonDialogueChoices : MonoBehaviour
     [SerializeField] private Question question;
     [SerializeField] private TMP_Text questionText;
     [SerializeField] private Button choiceButton;
-    [SerializeField] private LemonsChoice choice;
+    [SerializeField] private LemonsChoice[] choice;
     private int lineIndex;
     private bool didQuestionStart;
     private float typingTime = .20f;
@@ -18,7 +18,7 @@ public class LemonDialogueChoices : MonoBehaviour
     public event LemonsChoiceDelegate LemonHasToChoose;
 
 
-    private List<LemonChoicesManager> choiceManager = new List<LemonChoicesManager>();
+    [SerializeField] private List<LemonChoicesManager> choiceManager = new List<LemonChoicesManager>();
 
     private void RemoveChoices()
     {
@@ -54,11 +54,18 @@ public class LemonDialogueChoices : MonoBehaviour
         lineIndex++;
         for(int lineIndex = 0; lineIndex < question.choices.Length; lineIndex++)
         {
-            LemonChoicesManager c = LemonChoicesManager.AddChoiceButton(choiceButton, question.choices[lineIndex], lineIndex);
+            LemonChoicesManager c = LemonChoicesManager.AddChoiceButton(choiceButton, choice[lineIndex], lineIndex);
             choiceManager.Add(c);
             ShowLines(questionText, question.questionAsked, typingTime);
         }
-        if(lineIndex == question.choices.Length)
+        if(question.choices != null)
+        {
+            LemonChoicesManager c = LemonChoicesManager.AddChoiceButton(choiceButton, choice[lineIndex], lineIndex);
+            questionText.text = c.choice.choiceLines;
+            ShowLines(questionText, choice[lineIndex].choiceLines, typingTime);
+
+        }
+        else if(lineIndex == question.choices.Length)
         {
             Tween.StopAll(questionText);
             RemoveChoices();
