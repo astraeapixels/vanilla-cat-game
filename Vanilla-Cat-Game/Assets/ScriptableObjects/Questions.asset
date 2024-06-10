@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d91eb59ba2891b4e9fbd2f822ebf0a5, type: 3}
   m_Name: Questions
   m_EditorClassIdentifier: 
-  questionAsked: 
-  choices: []
+  questionAsked: What is your favorite color?
+  choices:
+  - choiceLines: Blue
+    text: 
+  - choiceLines: Purple
+    text: 

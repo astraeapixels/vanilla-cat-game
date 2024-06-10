@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: New Lemon Conversation
   m_EditorClassIdentifier: 
   emotionType: 0
-  dialogueLines: []
-  questionsAsked: {fileID: 0}
+  dialogueLines:
+  - 
+  - 
+  questionsAsked: {fileID: 11400000, guid: c18b4a09dbd3ee64caae45ca3a60a5b5, type: 2}
   nextConversation: {fileID: 0}

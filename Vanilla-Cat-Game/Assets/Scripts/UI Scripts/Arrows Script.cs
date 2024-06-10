@@ -1,49 +1,53 @@
 using UnityEngine;
 using UnityEngine.UI;
+using PrimeTween;
 
 public class ArrowsScript : MonoBehaviour
 {
-    [SerializeField] private Image[] previewImages;
     [SerializeField] Button leftButton, rightButton;
-    private int numOfHatImages;
+    [SerializeField] private Vector3 pageStep;
+    [SerializeField] private RectTransform initialRect;
+    [SerializeField] private float duration;
+    private Vector3 targetPos;
+    private int currentPreviewIndex;
+    [SerializeField] private int maxPreviewIndex;
 
     // Start is called before the first frame update
     void Start()
     {   
-    //     for(int i = 0; i < previewImages.Length; i++)
-    // {
-    //     if(!previewImages[i].isActiveAndEnabled) continue; 
-
-    //     numOfHatImages = i;
-    // }
-        rightButton.onClick.AddListener(showNextPreview);
-        leftButton.onClick.AddListener(showPreviousPreview);
     }
+
+    void Awake()
+    {
+        currentPreviewIndex = 1;
+        targetPos = initialRect.localPosition;
+    }       
+
 
     // Update is called once per frame
-    public void showNextPreview()
+    public void ShowNextPreview()
     {
-        previewImages[numOfHatImages].enabled = true;
-        numOfHatImages++;
-
-        if(numOfHatImages > previewImages.Length -1)
+        if(currentPreviewIndex < maxPreviewIndex)
         {
-            numOfHatImages = 0;
+            currentPreviewIndex++;
+            targetPos += pageStep;
+            MovePreview(duration, targetPos);
         }
-
-        //previewImages[numOfHatImages].enabled = false;
+    
+    }
+    public void ShowPreviousPreview()            
+    {  
+       if(currentPreviewIndex > 1)
+        {
+            currentPreviewIndex--;
+            targetPos -= pageStep;
+            MovePreview(duration, targetPos);
+        }
     }
 
-    public void showPreviousPreview()
+    private void MovePreview(float _duration, Vector3 _targetPos)
     {
-        previewImages[numOfHatImages].enabled = true;
-        numOfHatImages--;
-        if(numOfHatImages < 0)
-        {
-            numOfHatImages = previewImages.Length -1;
-        }
-
-        // Show previous model
-        previewImages[numOfHatImages].enabled = true;
+        Tween.LocalPosition(initialRect, _targetPos, _duration, Ease.InOutCubic);
     }
+    
     }
