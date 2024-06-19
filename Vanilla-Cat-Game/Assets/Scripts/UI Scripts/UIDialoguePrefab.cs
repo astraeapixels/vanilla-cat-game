@@ -17,7 +17,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private Emotion emotionType;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private EmotionAndDialogueRelationships relationships;
-    private Sprite[] currentEmoticons;
+    private Sprite currentEmoticons;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -26,7 +26,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     void Start()
     {   
-        currentEmoticons = relationships.currentEmotion;
+        currentEmoticons = relationships.currentEmotion[0];
         exitButton.onClick.AddListener(ExitDialogue);
     }
     void Update()
@@ -106,7 +106,7 @@ public class UIDialoguePrefab : MonoBehaviour
         dialogueLines = newLines;
     }
     
-    // private static Tween ShowSprite(SpriteRenderer _spriteRenderer, Sprite[] _currentEmotion, TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
+    // private static Tween ShowSprite(SpriteRenderer _spriteRenderer, Sprite _currentEmotion, TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
     // {   
     //     _dialogueText.SetText(_dialogueLines[_stringIndex]);
     //     int characterCount = _dialogueLines.Length;
