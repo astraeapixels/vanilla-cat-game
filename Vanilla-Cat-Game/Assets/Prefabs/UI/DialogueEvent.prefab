@@ -56,6 +56,11 @@ MonoBehaviour:
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
+  defaultEmoticon: {fileID: 0}
+  emotionType: 1
+  spriteRenderer: {fileID: 0}
+  emotionsAndSprites: {fileID: 11400000, guid: f01ad7312b71a8a44b438c5a6a597d37, type: 2}
+  currentEmoticons: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
 --- !u!114 &8948437605177903054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,4 +98,9 @@ MonoBehaviour:
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
+  defaultEmoticon: {fileID: 0}
+  emotionType: 1
+  spriteRenderer: {fileID: 0}
+  emotionsAndSprites: {fileID: 11400000, guid: f01ad7312b71a8a44b438c5a6a597d37, type: 2}
+  currentEmoticons: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
   dialogueManager: {fileID: 24874656197324311}
