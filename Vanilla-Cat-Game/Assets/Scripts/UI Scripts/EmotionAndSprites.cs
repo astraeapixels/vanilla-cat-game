@@ -1,11 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Relationships", menuName = "EmotionRelationships")]
 public class EmotionsAndSprites : ScriptableObject
 {
-    public Image defaultEmotion;
     public SpriteRenderer spriteRenderer;
     public Sprite currentSprite;
     public List<Moods> Emoticon(Moods _moods, Emotion _emotion)
