@@ -5,60 +5,49 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Relationships", menuName = "EmotionRelationships")]
 public class EmotionsAndSprites : ScriptableObject
 {
-    public Moods moods;
-    public Sprite[] currentEmotion;
-    public Emotion emotion;
-    [SerializeField] private Image defaultEmotion;
+    public Image defaultEmotion;
     public SpriteRenderer spriteRenderer;
-    public List<GameObject> emoticonSprites;
     public Sprite currentSprite;
-    public Sprite Emoticon(Moods _moods, Emotion _emotion)
+    public List<Moods> Emoticon(Moods _moods, Emotion _emotion)
     {
-        currentSprite = _moods.defaultMood;
-        
-        if(_emotion == Emotion.Default)
-        {
-            currentSprite = _moods.defaultMood;
-        }
-        if(_emotion == Emotion.Happy)
-        {
-            currentSprite = _moods.happy;
-        }
-        if(_emotion == Emotion.Sassy)
-        {
-            currentSprite = _moods.sassy;
-        }
-         if(_emotion == Emotion.Flirty)
-        {
-            currentSprite = _moods.flirty;
-        }
-        if(_emotion == Emotion.Soft)
-        {
-            currentSprite = _moods.soft;
-        }
-           if(_emotion == Emotion.Angry)
-        {
-            currentSprite = _moods.angry;
-        }
-        if(_emotion == Emotion.Confused)
-        {
-            currentSprite = _moods.confused;
-        }
-         if(_emotion == Emotion.Sad)
-        {
-            currentSprite = _moods.sad;
-        }
-        if(_emotion == Emotion.Surprised)
-        {
-            currentSprite = _moods.surprised;
-        }
-        if(_emotion == Emotion.Scared)
-        {
-            currentSprite = _moods.scared;
-        }
-        if(_emotion == Emotion.InLove)
-        {
-            currentSprite = _moods.inLove;
+        switch (_emotion)
+        { 
+            case Emotion.Default:
+                currentSprite = _moods.defaultMood;
+                break; 
+            case Emotion.Happy:
+                currentSprite = _moods.happy;
+                break;
+            case Emotion.Sassy:
+                currentSprite = _moods.sassy;
+                break;
+            case Emotion.Flirty:
+                currentSprite = _moods.flirty;
+                break;
+            case Emotion.Soft:
+                currentSprite = _moods.soft;
+                break;
+            case Emotion.Angry:
+                currentSprite = _moods.angry;
+                break;
+            case Emotion.Confused:
+                currentSprite = _moods.confused;
+                break;
+            case Emotion.Sad:
+                currentSprite = _moods.sad;
+                break;
+            case Emotion.Surprised:
+                currentSprite = _moods.surprised;
+                break;
+            case Emotion.Scared:
+                currentSprite = _moods.scared;
+                break;
+            case Emotion.InLove:
+                currentSprite = _moods.inLove;
+                break;
+            default:
+                currentSprite = _moods.defaultMood;
+                break;
         }
         return default;
     }
@@ -66,10 +55,9 @@ public class EmotionsAndSprites : ScriptableObject
      public void Start()
     {
         spriteRenderer.sprite = currentSprite;
-        emoticonSprites = new List<GameObject>(currentEmotion.Length);
     }
 }
-
+[System.Serializable]
 public struct Moods
 {
     public Sprite defaultMood;

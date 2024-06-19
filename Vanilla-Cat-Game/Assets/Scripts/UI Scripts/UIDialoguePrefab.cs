@@ -27,7 +27,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     private void Start()
     {   
-        currentEmoticons = emotionsAndSprites.Emoticon(moodType, emotionType);
+        currentEmoticons = emotionsAndSprites.currentSprite;
         exitButton.onClick.AddListener(ExitDialogue);
     }
 
