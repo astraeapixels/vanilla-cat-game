@@ -33,7 +33,7 @@ namespace Ink.Runtime
         /// <summary>
         /// The minimum legacy version of ink that can be loaded by the current version of the code.
         /// </summary>
-        const int inkVersionMinimumCompatible = 18;
+        private const int inkVersionMinimumCompatible = 18;
 
         /// <summary>
         /// The list of Choice objects available at the current point in
@@ -258,7 +258,7 @@ namespace Ink.Runtime
             ToJson(writer);
         }
 
-        void ToJson(SimpleJson.Writer writer)
+        private void ToJson(SimpleJson.Writer writer)
         {
             writer.WriteObjectStart();
 
@@ -311,7 +311,7 @@ namespace Ink.Runtime
             ResetGlobals ();
         }
 
-        void ResetErrors()
+        private void ResetErrors()
         {
             _state.ResetErrors ();
         }
@@ -331,7 +331,7 @@ namespace Ink.Runtime
             _state.ForceEnd ();
         }
 
-        void ResetGlobals()
+        private void ResetGlobals()
         {
             if (_mainContentContainer.namedContent.ContainsKey ("global decl")) {
                 var originalPointer = state.currentPointer;
@@ -421,7 +421,7 @@ namespace Ink.Runtime
             ContinueInternal (millisecsLimitAsync);
         }
 
-        void ContinueInternal (float millisecsLimitAsync = 0)
+        private void ContinueInternal (float millisecsLimitAsync = 0)
         {
             if( _profiler != null )
                 _profiler.PreContinue();
@@ -575,7 +575,7 @@ namespace Ink.Runtime
             }
         }
 
-        bool ContinueSingleStep ()
+        private bool ContinueSingleStep ()
         {
             if (_profiler != null)
                 _profiler.PreStep ();
@@ -668,13 +668,14 @@ namespace Ink.Runtime
         //   Content
         //   # tag
         // ... doesn't cause the tag to be wrongly associated with the content above.
-        enum OutputStateChange
+        private enum OutputStateChange
         {
         	NoChange,
         	ExtendedBeyondNewline,
         	NewlineRemoved
         }
-        OutputStateChange CalculateNewlineOutputStateChange (string prevText, string currText, int prevTagCount, int currTagCount)
+
+        private OutputStateChange CalculateNewlineOutputStateChange (string prevText, string currText, int prevTagCount, int currTagCount)
         {
             // Simple case: nothing's changed, and we still have a newline
             // at the end of the current content
@@ -773,13 +774,13 @@ namespace Ink.Runtime
         //  - _stateSnapshotAtLastNewline (has older patch)
         //  - _state (current, being patched)
 
-        void StateSnapshot()
+        private void StateSnapshot()
         {
             _stateSnapshotAtLastNewline = _state;
             _state = _state.CopyAndStartPatching();
         }
 
-        void RestoreStateSnapshot()
+        private void RestoreStateSnapshot()
         {
             // Patched state had temporarily hijacked our
             // VariablesState and set its own callstack on it,
@@ -799,7 +800,7 @@ namespace Ink.Runtime
             }
         }
 
-        void DiscardSnapshot()
+        private void DiscardSnapshot()
         {
             // Normally we want to integrate the patch
             // into the main global/counts dictionaries.
@@ -856,9 +857,7 @@ namespace Ink.Runtime
             _asyncSaving = false;
         }
 
-
-
-        void Step ()
+        private void Step ()
         {
             bool shouldAddToStream = true;
 
@@ -960,7 +959,7 @@ namespace Ink.Runtime
         }
 
         // Mark a container as having been visited
-        void VisitContainer(Container container, bool atStart)
+        private void VisitContainer(Container container, bool atStart)
         {
             if ( !container.countingAtStartOnly || atStart ) {
                 if( container.visitsShouldBeCounted )
@@ -971,8 +970,9 @@ namespace Ink.Runtime
             }
         }
 
-        List<Container> _prevContainers = new List<Container>();
-        void VisitChangedContainersDueToDivert()
+        private List<Container> _prevContainers = new List<Container>();
+
+        private void VisitChangedContainersDueToDivert()
         {
             var previousPointer = state.previousPointer;
             var pointer = state.currentPointer;
@@ -1024,7 +1024,7 @@ namespace Ink.Runtime
             }
         }
 
-        string PopChoiceStringAndTags(ref List<string> tags)
+        private string PopChoiceStringAndTags(ref List<string> tags)
         {
             var choiceOnlyStrVal = (StringValue) state.PopEvaluationStack ();
 
@@ -1036,8 +1036,8 @@ namespace Ink.Runtime
 
             return choiceOnlyStrVal.value;
         }
-            
-        Choice ProcessChoice(ChoicePoint choicePoint)
+
+        private Choice ProcessChoice(ChoicePoint choicePoint)
         {
             bool showChoice = true;
 
@@ -1099,7 +1099,7 @@ namespace Ink.Runtime
 
         // Does the expression result represented by this object evaluate to true?
         // e.g. is it a Number that's not equal to 1?
-        bool IsTruthy(Runtime.Object obj)
+        private bool IsTruthy(Runtime.Object obj)
         {
             bool truthy = false;
             if (obj is Value) {
@@ -1122,7 +1122,7 @@ namespace Ink.Runtime
         /// </summary>
         /// <returns><c>true</c> if object was logic or flow control, <c>false</c> if it's normal content.</returns>
         /// <param name="contentObj">Content object.</param>
-        bool PerformLogicAndFlowControl(Runtime.Object contentObj)
+        private bool PerformLogicAndFlowControl(Runtime.Object contentObj)
         {
             if( contentObj == null ) {
                 return false;
@@ -1760,7 +1760,7 @@ namespace Ink.Runtime
             ChoosePath (new Path (path));
         }
 
-        void IfAsyncWeCant (string activityStr)
+        private void IfAsyncWeCant (string activityStr)
         {
             if (_asyncContinueActive)
                 throw new System.Exception ("Can't " + activityStr + ". Story is in the middle of a ContinueAsync(). Make more ContinueAsync() calls or a single Continue() call beforehand.");
@@ -2017,7 +2017,7 @@ namespace Ink.Runtime
             };
         }
 
-        object TryCoerce<T>(object value)
+        private object TryCoerce<T>(object value)
         {  
             if (value == null)
                 return null;
@@ -2365,7 +2365,7 @@ namespace Ink.Runtime
 			}
         }
 
-		void ValidateExternalBindings(Container c, HashSet<string> missingExternals)
+        private void ValidateExternalBindings(Container c, HashSet<string> missingExternals)
         {
             foreach (var innerContent in c.content) {
 				var container = innerContent as Container;
@@ -2377,7 +2377,7 @@ namespace Ink.Runtime
             }
         }
 
-		void ValidateExternalBindings(Runtime.Object o, HashSet<string> missingExternals)
+        private void ValidateExternalBindings(Runtime.Object o, HashSet<string> missingExternals)
         {
             var container = o as Container;
             if (container) {
@@ -2493,7 +2493,7 @@ namespace Ink.Runtime
             }
         }
 
-        void VariableStateDidChangeEvent(string variableName, Runtime.Object newValueObj)
+        private void VariableStateDidChangeEvent(string variableName, Runtime.Object newValueObj)
         {
             if (_variableObservers == null)
                 return;
@@ -2531,7 +2531,7 @@ namespace Ink.Runtime
             return TagsAtStartOfFlowContainerWithPathString (path);
         }
 
-        List<string> TagsAtStartOfFlowContainerWithPathString (string pathString)
+        private List<string> TagsAtStartOfFlowContainerWithPathString (string pathString)
         {
             var path = new Runtime.Path (pathString);
 
@@ -2594,7 +2594,7 @@ namespace Ink.Runtime
             return sb.ToString ();
         }
 
-        string BuildStringOfContainer (Container container)
+        private string BuildStringOfContainer (Container container)
         {
         	var sb = new StringBuilder ();
 
@@ -2663,7 +2663,7 @@ namespace Ink.Runtime
 			}
 		}
 
-        bool IncrementContentPointer()
+        private bool IncrementContentPointer()
         {
             bool successfulIncrement = true;
 
@@ -2700,8 +2700,8 @@ namespace Ink.Runtime
 
             return successfulIncrement;
         }
-            
-        bool TryFollowDefaultInvisibleChoice()
+
+        private bool TryFollowDefaultInvisibleChoice()
         {
             var allChoices = _state.currentChoices;
 
@@ -2726,12 +2726,12 @@ namespace Ink.Runtime
 
             return true;
         }
-            
+
 
         // Note that this is O(n), since it re-evaluates the shuffle indices
         // from a consistent seed each time.
         // TODO: Is this the best algorithm it can be?
-        int NextSequenceShuffleIndex()
+        private int NextSequenceShuffleIndex()
         {
             var numElementsIntVal = state.PopEvaluationStack () as IntValue;
             if (numElementsIntVal == null) {
@@ -2792,7 +2792,7 @@ namespace Ink.Runtime
             AddError (message, isWarning:true);
         }
 
-        void AddError (string message, bool isWarning = false, bool useEndLineNumber = false)
+        private void AddError (string message, bool isWarning = false, bool useEndLineNumber = false)
         {
             var dm = currentDebugMetadata;
 
@@ -2814,7 +2814,7 @@ namespace Ink.Runtime
                 state.ForceEnd ();
         }
 
-        void Assert(bool condition, string message = null, params object[] formatParams)
+        private void Assert(bool condition, string message = null, params object[] formatParams)
         {
             if (condition == false) {
                 if (message == null) {
@@ -2828,7 +2828,7 @@ namespace Ink.Runtime
             }
         }
 
-        DebugMetadata currentDebugMetadata
+        private DebugMetadata currentDebugMetadata
         {
             get {
                 DebugMetadata dm;
@@ -2868,7 +2868,7 @@ namespace Ink.Runtime
             }
         }
 
-        int currentLineNumber 
+        private int currentLineNumber 
         {
             get {
                 var dm = currentDebugMetadata;
@@ -2889,30 +2889,25 @@ namespace Ink.Runtime
             }
         }
 
-        Container _mainContentContainer;
-        ListDefinitionsOrigin _listDefinitions;
+        private Container _mainContentContainer;
+        private ListDefinitionsOrigin _listDefinitions;
 
-        struct ExternalFunctionDef {
+        private struct ExternalFunctionDef {
             public ExternalFunction function;
             public bool lookaheadSafe;
         }
-        Dictionary<string, ExternalFunctionDef> _externals;
-        Dictionary<string, VariableObserver> _variableObservers;
-        bool _hasValidatedExternals;
 
-        Container _temporaryEvaluationContainer;
-
-        StoryState _state;
-
-        bool _asyncContinueActive;
-        StoryState _stateSnapshotAtLastNewline = null;
-        bool _sawLookaheadUnsafeFunctionAfterNewline = false;
-
-        int _recursiveContinueCount = 0;
-
-        bool _asyncSaving;
-
-        Profiler _profiler;
+        private Dictionary<string, ExternalFunctionDef> _externals;
+        private Dictionary<string, VariableObserver> _variableObservers;
+        private bool _hasValidatedExternals;
+        private Container _temporaryEvaluationContainer;
+        private StoryState _state;
+        private bool _asyncContinueActive;
+        private StoryState _stateSnapshotAtLastNewline = null;
+        private bool _sawLookaheadUnsafeFunctionAfterNewline = false;
+        private int _recursiveContinueCount = 0;
+        private bool _asyncSaving;
+        private Profiler _profiler;
 	}
 }
 

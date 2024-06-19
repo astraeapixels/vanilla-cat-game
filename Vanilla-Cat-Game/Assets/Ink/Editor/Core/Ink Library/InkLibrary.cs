@@ -21,7 +21,7 @@ namespace Ink.UnityIntegration {
 		public static System.Version inkVersionCurrent = new System.Version(1,1,1);
 		public static System.Version unityIntegrationVersionCurrent = new System.Version(1,1,8);
 
-		static string absoluteSavePath {
+        private static string absoluteSavePath {
 			get {
 				return System.IO.Path.GetFullPath(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(),"Library","asset"));
 			}
@@ -74,20 +74,20 @@ namespace Ink.UnityIntegration {
 			InternalEditorUtility.SaveToSerializedFileAndForget((Object[]) new InkLibrary[1] {instance}, absoluteSavePath, saveAsText);
 		}
 
-		static void EnsureCreated () {
+        private static void EnsureCreated () {
 			if(!created) LoadOrCreateInstance();
 		}
         #endif
         
         public class AssetSaver : UnityEditor.AssetModificationProcessor {
-            static string[] OnWillSaveAssets(string[] paths) {
+            private static string[] OnWillSaveAssets(string[] paths) {
                 instance.Save(true);
                 return paths;
             }
         }
 
 		public List<InkFile> inkLibrary = new List<InkFile>();
-		Dictionary<DefaultAsset, InkFile> inkLibraryDictionary = new Dictionary<DefaultAsset, InkFile>();
+        private Dictionary<DefaultAsset, InkFile> inkLibraryDictionary = new Dictionary<DefaultAsset, InkFile>();
 		
         public int Count {
             get {
@@ -109,15 +109,16 @@ namespace Ink.UnityIntegration {
             return inkLibrary.GetEnumerator();
         }
 
-		void OnValidate () {
+        private void OnValidate () {
             BuildLookupDictionary();
             // This is experimental! I'd like to see if it fixes the issue where assets have not yet been imported.
             EditorApplication.delayCall += () => {
                 Validate();
             };
         }
-		// After recompile, the data associated with the object is fetched (or whatever happens to it) by this point. 
-		void OnEnable () {
+
+        // After recompile, the data associated with the object is fetched (or whatever happens to it) by this point. 
+        private void OnEnable () {
 			// Deletes the persistent version of this asset that we used to use prior to 0.9.71
 			if(!Application.isPlaying && EditorUtility.IsPersistent(this)) {
 				var path = AssetDatabase.GetAssetPath(this);
@@ -132,7 +133,7 @@ namespace Ink.UnityIntegration {
 			}
 		}
 
-        static void BuildLookupDictionary () {
+        private static void BuildLookupDictionary () {
             instance.inkLibraryDictionary.Clear();
 			foreach(var inkFile in instance.inkLibrary) {
                 instance.inkLibraryDictionary.Add(inkFile.inkAsset, inkFile);
@@ -151,14 +152,14 @@ namespace Ink.UnityIntegration {
 				return true;
 			}
         }
-        
-		/// <summary>
-		/// Checks if the library is corrupt and requires a Rebuild. 
+
+        /// <summary>
+        /// Checks if the library is corrupt and requires a Rebuild. 
         /// This can happen when asset IDs change, causing the wrong file to be referenced.
         /// This occassionally occurs from source control.
         /// This is a fairly performant check.
-		/// </summary>
-        static bool RequiresRebuild () {
+        /// </summary>
+        private static bool RequiresRebuild () {
             #if !UNITY_2020_1_OR_NEWER
 			EnsureCreated();
             #endif
@@ -200,7 +201,7 @@ namespace Ink.UnityIntegration {
             return wasDirty;
 		}
 
-        static void Add (InkFile inkFile) {
+        private static void Add (InkFile inkFile) {
             instance.inkLibrary.Add(inkFile);
 			SortInkLibrary();
 			instance.inkLibraryDictionary.Add(inkFile.inkAsset, inkFile);
@@ -210,7 +211,8 @@ namespace Ink.UnityIntegration {
             instance.inkLibrary.RemoveAt(index);
             instance.inkLibraryDictionary.Remove(inkFile.inkAsset);
         }
-		static void SortInkLibrary () {
+
+        private static void SortInkLibrary () {
             instance.inkLibrary = instance.inkLibrary.OrderBy(x => x.filePath).ToList();
 		}
 

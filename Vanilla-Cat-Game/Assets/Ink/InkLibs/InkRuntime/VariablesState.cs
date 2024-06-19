@@ -40,7 +40,8 @@ namespace Ink.Runtime
                 }
             }
         }
-        bool _batchObservingVariableChanges;
+
+        private bool _batchObservingVariableChanges;
 
         // Allow StoryState to change the current callstack, e.g. for
         // temporary function evaluation.
@@ -230,7 +231,7 @@ namespace Ink.Runtime
 			return _globalVariables.ContainsKey(name) || _defaultGlobalVariables != null && _defaultGlobalVariables.ContainsKey(name);
 		}
 
-        Runtime.Object GetVariableWithName(string name, int contextIndex)
+        private Runtime.Object GetVariableWithName(string name, int contextIndex)
         {
             Runtime.Object varValue = GetRawVariableWithName (name, contextIndex);
 
@@ -243,7 +244,7 @@ namespace Ink.Runtime
             return varValue;
         }
 
-        Runtime.Object GetRawVariableWithName(string name, int contextIndex)
+        private Runtime.Object GetRawVariableWithName(string name, int contextIndex)
         {
             Runtime.Object varValue = null;
 
@@ -332,7 +333,7 @@ namespace Ink.Runtime
             _defaultGlobalVariables = new Dictionary<string, Object> (_globalVariables);
         }
 
-        void RetainListOriginsForAssignment (Runtime.Object oldValue, Runtime.Object newValue)
+        private void RetainListOriginsForAssignment (Runtime.Object oldValue, Runtime.Object newValue)
         {
             var oldList = oldValue as ListValue;
             var newList = newValue as ListValue;
@@ -369,7 +370,7 @@ namespace Ink.Runtime
         // Given a variable pointer with just the name of the target known, resolve to a variable
         // pointer that more specifically points to the exact instance: whether it's global,
         // or the exact position of a temporary on the callstack.
-        VariablePointerValue ResolveVariablePointer(VariablePointerValue varPointer)
+        private VariablePointerValue ResolveVariablePointer(VariablePointerValue varPointer)
         {
             int contextIndex = varPointer.contextIndex;
 
@@ -396,7 +397,7 @@ namespace Ink.Runtime
 
         // 0  if named variable is global
         // 1+ if named variable is a temporary in a particular call stack element
-        int GetContextIndexOfVariableNamed(string varName)
+        private int GetContextIndexOfVariableNamed(string varName)
         {
             if (GlobalVariableExistsWithName(varName))
                 return 0;
@@ -404,14 +405,13 @@ namespace Ink.Runtime
             return _callStack.currentElementIndex;
         }
 
-        Dictionary<string, Runtime.Object> _globalVariables;
-
-        Dictionary<string, Runtime.Object> _defaultGlobalVariables;
+        private Dictionary<string, Runtime.Object> _globalVariables;
+        private Dictionary<string, Runtime.Object> _defaultGlobalVariables;
 
         // Used for accessing temporary variables
-        CallStack _callStack;
-        HashSet<string> _changedVariablesForBatchObs;
-        ListDefinitionsOrigin _listDefsOrigin;
+        private CallStack _callStack;
+        private HashSet<string> _changedVariablesForBatchObs;
+        private ListDefinitionsOrigin _listDefsOrigin;
     }
 }
 

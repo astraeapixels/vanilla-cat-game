@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class Baggage : Animatable {
-        [SerializeField] Transform animationAnchor;
-        Sequence sequence;
+        [SerializeField] private Transform animationAnchor;
+        private Sequence sequence;
 
         public override void OnClick() {
             PlayFlipAnimation();
@@ -15,7 +15,7 @@ namespace PrimeTweenDemo {
             return PlayFlipAnimation();
         }
 
-        Sequence PlayFlipAnimation() {
+        private Sequence PlayFlipAnimation() {
             if (!sequence.isAlive) {
                 const float jumpDuration = 0.3f;
                 sequence = Tween.LocalPositionZ(animationAnchor, 0.2f, jumpDuration)

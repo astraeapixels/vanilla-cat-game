@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class CameraProjectionMatrixAnimation : MonoBehaviour {
-        [SerializeField] Camera mainCamera;
-        float interpolationFactor;
-        bool isOrthographic;
-        Tween tween;
+        [SerializeField] private Camera mainCamera;
+        private float interpolationFactor;
+        private bool isOrthographic;
+        private Tween tween;
 
         public void AnimateCameraProjection() {
             isOrthographic = !isOrthographic;
@@ -21,7 +21,7 @@ namespace PrimeTweenDemo {
                 });
         }
 
-        void InterpolateProjectionMatrix(float _interpolationFactor) {
+        private void InterpolateProjectionMatrix(float _interpolationFactor) {
             interpolationFactor = _interpolationFactor;
             float aspect = (float)Screen.width / Screen.height;
             var orthographicSize = mainCamera.orthographicSize;

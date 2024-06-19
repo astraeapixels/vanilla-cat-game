@@ -5,9 +5,9 @@ public class CatCustomization : MonoBehaviour
 {
     [SerializeField] private Image greenHatPreview, purpleCapPreview, yellowRibbonsPreview;
 
-    [SerializeField] Button greenHatButton, purpleCapButton, yellowRibbonsButton;
+    [SerializeField] private Button greenHatButton, purpleCapButton, yellowRibbonsButton;
 
-    void Start()
+    private void Start()
     {
         greenHatPreview.enabled = false;
         purpleCapPreview.enabled = false;

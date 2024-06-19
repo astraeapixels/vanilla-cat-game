@@ -9,14 +9,14 @@ using UnityEngine;
 namespace PrimeTweenDemo {
     [PublicAPI]
     public class TypewriterAnimatorExample : MonoBehaviour {
-        enum AnimationType { Simple, WithPunctuations, ByWords }
-        [SerializeField] AnimationType animationType = AnimationType.WithPunctuations; 
-        [SerializeField] float charsPerSecond = 40f;
-        [SerializeField] int pauseAfterPunctuation = 20;
-        #if TEXT_MESH_PRO_INSTALLED
-        TextMeshProUGUI text;
+        private enum AnimationType { Simple, WithPunctuations, ByWords }
+        [SerializeField] private AnimationType animationType = AnimationType.WithPunctuations; 
+        [SerializeField] private float charsPerSecond = 40f;
+        [SerializeField] private int pauseAfterPunctuation = 20;
+#if TEXT_MESH_PRO_INSTALLED
+        private TextMeshProUGUI text;
 
-        void Awake() {
+        private void Awake() {
             text = gameObject.AddComponent<TextMeshProUGUI>();
             text.maxVisibleCharacters = 0;
             text.alignment = TextAlignmentOptions.TopLeft;
@@ -55,8 +55,8 @@ namespace PrimeTweenDemo {
             float duration = remappedCount / charsPerSecond;
             return Tween.Custom(this, 0f, remappedCount, duration, (t, x) => t.UpdateMaxVisibleCharsWithPunctuation(x), Ease.Linear);
         }
-        
-        void UpdateMaxVisibleCharsWithPunctuation(float progress) {
+
+        private void UpdateMaxVisibleCharsWithPunctuation(float progress) {
             int remappedEndIndex = Mathf.RoundToInt(progress);
             RemapWithPunctuations(text, remappedEndIndex, out _, out int visibleCharsCount);
             if (text.maxVisibleCharacters != visibleCharsCount) {
@@ -64,8 +64,8 @@ namespace PrimeTweenDemo {
                 // play keyboard typing sound here if needed
             }
         }
-        
-        void RemapWithPunctuations([NotNull] TMP_Text text, int remappedEndIndex, out int remappedCount, out int visibleCharsCount) {
+
+        private void RemapWithPunctuations([NotNull] TMP_Text text, int remappedEndIndex, out int remappedCount, out int visibleCharsCount) {
             remappedCount = 0;
             visibleCharsCount = 0;
             int count = text.textInfo.characterCount;
@@ -100,7 +100,7 @@ namespace PrimeTweenDemo {
             return Tween.Custom(this, 0f, numWords, duration, (t, x) => t.UpdateVisibleWords(x), Ease.Linear);
         }
 
-        void UpdateVisibleWords(float progress) {
+        private void UpdateVisibleWords(float progress) {
             int curWordIndex = Mathf.RoundToInt(progress);
             RemapWords(text, curWordIndex, out _, out int visibleCharsCount);
             if (text.maxVisibleCharacters != visibleCharsCount) {
@@ -108,8 +108,8 @@ namespace PrimeTweenDemo {
                 // play keyboard typing sound here if needed
             }
         }
-        
-        static void RemapWords([NotNull] TMP_Text text, int remappedEndIndex, out int remappedCount, out int visibleCharsCount) {
+
+        private static void RemapWords([NotNull] TMP_Text text, int remappedEndIndex, out int remappedCount, out int visibleCharsCount) {
             visibleCharsCount = 0;
             int count = text.textInfo.characterCount;
             if (count == 0) {

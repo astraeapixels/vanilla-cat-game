@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class SlidingDoor : Animatable {
-        [SerializeField] Transform animationAnchor;
-        [SerializeField] Vector3 openedPos, midPos, closedPos;
-        Demo demo;
-        bool isClosed;
-        Sequence sequence;
+        [SerializeField] private Transform animationAnchor;
+        [SerializeField] private Vector3 openedPos, midPos, closedPos;
+        private Demo demo;
+        private bool isClosed;
+        private Sequence sequence;
 
-        void Awake() {
+        private void Awake() {
             demo = FindObjectOfType<Demo>();
             UnityEngine.Assertions.Assert.IsNotNull(demo);
         }

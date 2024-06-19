@@ -19,7 +19,8 @@ namespace Ink.Runtime
                 AddContent (value);
             }
         }
-        List<Runtime.Object> _content;
+
+        private List<Runtime.Object> _content;
 
 		public Dictionary<string, INamedContent> namedContent { get; set; }
 
@@ -114,9 +115,10 @@ namespace Ink.Runtime
                 return _pathToFirstLeafContent;
 			}
 		}
-        Path _pathToFirstLeafContent;
 
-        Path internalPathToFirstLeafContent
+        private Path _pathToFirstLeafContent;
+
+        private Path internalPathToFirstLeafContent
         {
             get {
 				var components = new List<Path.Component>();

@@ -8,8 +8,9 @@ public class CursorController : MonoBehaviour
 
     public Texture2D normalMouse;
 	public Texture2D pressedMouse;
+
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }

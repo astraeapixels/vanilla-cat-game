@@ -6,19 +6,20 @@ public class PointsPath : MonoBehaviour
 {
     internal Transform player;
     internal Transform[] position;
-    [SerializeField] Transform[] Points;
+    [SerializeField] private Transform[] Points;
     [SerializeField] private float smoothSpeed = 5f;
 
     [SerializeField] private float rotationSpeed = 10f;
     private int pointsIndex;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //transform.position = Points[pointsIndex].transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(pointsIndex <= Points.Length-1)
         {

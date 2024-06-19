@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CameraPan : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start () {
 		StartCoroutine(Pan());
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    private void Update () {
 		
 	}
 
-	IEnumerator Pan () {
+    private IEnumerator Pan () {
 		while (true) {
 			yield return new WaitForSeconds(2.0f);
 			while(transform.position.x < 1.0f) {

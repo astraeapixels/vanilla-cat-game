@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class Wheels : Animatable {
-        [SerializeField] Demo demo;
-        [SerializeField] Transform[] wheels;
-        bool isAnimating;
-        Sequence sequence;
+        [SerializeField] private Demo demo;
+        [SerializeField] private Transform[] wheels;
+        private bool isAnimating;
+        private Sequence sequence;
 
         public override void OnClick() {
             demo.AnimateAll(!isAnimating);
@@ -20,7 +20,7 @@ namespace PrimeTweenDemo {
             return Sequence.Create().ChainCallback(this, target => target.SpinWheelsInfinitely());
         }
 
-        void SpinWheelsInfinitely() {
+        private void SpinWheelsInfinitely() {
             if (isAnimating) {
                 sequence.Complete();
                 sequence = Sequence.Create(-1);

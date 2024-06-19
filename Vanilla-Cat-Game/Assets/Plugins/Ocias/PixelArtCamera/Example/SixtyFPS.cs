@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class SixtyFPS : MonoBehaviour {
-	void Start () {
+    private void Start () {
 		Application.targetFrameRate = 60;
 	}
 }

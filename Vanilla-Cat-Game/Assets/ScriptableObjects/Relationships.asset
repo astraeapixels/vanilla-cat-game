@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53273442d5d71b44afd59ec1c91181e, type: 3}
-  m_Name: EmotionAndDialogueRelationships
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: Relationships
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionAndDialogueRelationships
   currentEmotion: []
-  emotion: 
+  emotion: 0
+  defaultEmotion: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  emoticonSprites:
-  - {fileID: 0}
+  emoticonSprites: []
+  currentSprite: {fileID: 0}

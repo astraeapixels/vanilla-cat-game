@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class NewDialogueScript : MonoBehaviour
 {
-    [SerializeField,TextArea(1,6)] string[] newLines;
+    [SerializeField,TextArea(1,6)] private string[] newLines;
     [SerializeField] private UIDialoguePrefab dialogueManager;
 
-
-    void Start()
+    private void Start()
     {
         dialogueManager.SetDialogueLines(newLines);
     }

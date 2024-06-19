@@ -19,23 +19,21 @@ public class PixelArtCamera : MonoBehaviour {
 	public bool useUpscaleShader = false;
 
 	public Material upscaleMaterial;
-
-	RenderTexture rt;
-
-	float targetAspectRatio;
-	float currentAspectRatio;
+    private RenderTexture rt;
+    private float targetAspectRatio;
+    private float currentAspectRatio;
 	
 	[HideInInspector] public Vector2 finalBlitStretch = Vector2.one;
 
 	public Camera mainCamera;
 	public Canvas mainCanvas;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start () {
 		SetupRenderTexture();
 	}
 
-	void Reset () {
+    private void Reset () {
 		// Try to connect everything automatically on first attach
 		mainCamera = Camera.main;
 		GameObject canvasObj = GameObject.Find("Canvas");
@@ -137,7 +135,7 @@ public class PixelArtCamera : MonoBehaviour {
 		// rt.Create();
 	}
 
-	void OnPreRender() {
+    private void OnPreRender() {
 		if ((float)Screen.width / (float)Screen.height != currentAspectRatio) {
 			SetupRenderTexture();
 		}
@@ -158,7 +156,8 @@ public class PixelArtCamera : MonoBehaviour {
 			mainCamera.targetTexture = rt;
 		}
     }
-	void OnPostRender() {
+
+    private void OnPostRender() {
 		if (mainCamera == null) {
 			return;
 		}

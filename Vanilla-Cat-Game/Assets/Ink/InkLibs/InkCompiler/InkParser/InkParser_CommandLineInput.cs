@@ -35,7 +35,7 @@ namespace Ink
             );
         }
 
-        CommandLineInput DebugSource ()
+        private CommandLineInput DebugSource ()
         {
             Whitespace ();
 
@@ -65,7 +65,7 @@ namespace Ink
             return inputStruct;
         }
 
-        CommandLineInput DebugPathLookup ()
+        private CommandLineInput DebugPathLookup ()
         {
             Whitespace ();
 
@@ -82,7 +82,7 @@ namespace Ink
             return inputStruct;
         }
 
-        string RuntimePath ()
+        private string RuntimePath ()
         {
             if (_runtimePathCharacterSet == null) {
                 _runtimePathCharacterSet = new CharacterSet (identifierCharSet);
@@ -94,7 +94,7 @@ namespace Ink
             return ParseCharactersFromCharSet (_runtimePathCharacterSet);
         }
 
-        CommandLineInput UserChoiceNumber()
+        private CommandLineInput UserChoiceNumber()
         {
             Whitespace ();
 
@@ -114,7 +114,7 @@ namespace Ink
             return inputStruct;
         }
 
-        CommandLineInput UserImmediateModeStatement()
+        private CommandLineInput UserImmediateModeStatement()
         {
             var statement = OneOf (SingleDivert, TempDeclarationOrAssignment, Expression);
 
@@ -123,7 +123,7 @@ namespace Ink
             return inputStruct;
         }
 
-        CharacterSet _runtimePathCharacterSet;
+        private CharacterSet _runtimePathCharacterSet;
     }
 }
 

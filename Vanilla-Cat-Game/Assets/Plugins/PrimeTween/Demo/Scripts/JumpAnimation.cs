@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class JumpAnimation : MonoBehaviour {
-        [SerializeField] Transform target;
-        Sequence sequence;
+        [SerializeField] private Transform target;
+        private Sequence sequence;
 
         public void PlayAnimation() {
             if (!sequence.isAlive) {

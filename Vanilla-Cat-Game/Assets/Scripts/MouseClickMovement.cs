@@ -7,14 +7,15 @@ public class MouseClickMovement : MonoBehaviour
 [SerializeField]
 private float speed = 10f;
 public Vector2 lastClickedPos;
-bool moving;
+    private bool moving;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector2 target = new Vector2(lastClickedPos.x, transform.position.y);
 

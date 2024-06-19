@@ -8,8 +8,8 @@ public class SpawnScript : MonoBehaviour
     public GameObject unitPrefab;
     public int numUnits = 5;
     public Vector3 range = new Vector3(5, 5, 5);
-  
-    void Start()
+
+    private void Start()
     {
         units = new GameObject[numUnits];
         for (int i = 0; i < numUnits; i++)

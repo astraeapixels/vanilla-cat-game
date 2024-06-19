@@ -44,8 +44,8 @@ namespace Ink.UnityIntegration {
 				_instance = value;
             }
 		}
-        
-		static string absoluteSavePath {
+
+        private static string absoluteSavePath {
 			get {
 				return System.IO.Path.GetFullPath(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(),"Library","InkCompiler.asset"));
 			}
@@ -173,7 +173,8 @@ namespace Ink.UnityIntegration {
 			}
 			return count;
 		}
-		static CompilationStackItem GetCurrentlyCompilingFile () {
+
+        private static CompilationStackItem GetCurrentlyCompilingFile () {
 			foreach(var compilationStackItem in instance.compilationStack) {
 				if(compilationStackItem.state == CompilationStackItemState.Compiling) {
 					return compilationStackItem;
@@ -214,34 +215,35 @@ namespace Ink.UnityIntegration {
 				return inkFile.masterInkFilesIncludingSelf;
 			}
 		}
-		#endregion
+        #endregion
 
 
-		#region Static Private Variables
-		// If we just blocked a build because of an ink compile
-		static bool buildBlocked = false;
-		// If we just blocked entering play mode because of an ink compile
-		static bool playModeBlocked = false;
+        #region Static Private Variables
+        // If we just blocked a build because of an ink compile
+        private static bool buildBlocked = false;
+
+        // If we just blocked entering play mode because of an ink compile
+        private static bool playModeBlocked = false;
 
 
-		// Track if we've currently locked compilation of Unity C# Scripts
-		static bool hasLockedUnityCompilation = false;
-		
-		// When compiling we call AssetDatabase.DisallowAutoRefresh. 
-		// We NEED to remember to re-allow it or unity stops registering file changes!
-		// The issue is that you need to pair calls perfectly, and you can't even use a try-catch to get around it.
-		// So - we cache if we've disabled auto refresh here, since this persists across plays.
-		static bool disallowedAutoRefresh {
+        // Track if we've currently locked compilation of Unity C# Scripts
+        private static bool hasLockedUnityCompilation = false;
+
+        // When compiling we call AssetDatabase.DisallowAutoRefresh. 
+        // We NEED to remember to re-allow it or unity stops registering file changes!
+        // The issue is that you need to pair calls perfectly, and you can't even use a try-catch to get around it.
+        // So - we cache if we've disabled auto refresh here, since this persists across plays.
+        private static bool disallowedAutoRefresh {
 			get => SessionState.GetBool("InkLibraryDisallowedAutoRefresh", false);
 			set => SessionState.SetBool("InkLibraryDisallowedAutoRefresh", value);
 		}
 
         // Actions that are passed into the CompileInk function, to run and then clear when we complete the compilation stack.
-		// To recieve an event each time the stack completes, see OnCompileInk.
-        static List<Action> onCompleteActions = new List<Action>();
-		
-		// Thread lock
-		static bool compileThreadActive {
+        // To recieve an event each time the stack completes, see OnCompileInk.
+        private static List<Action> onCompleteActions = new List<Action>();
+
+        // Thread lock
+        private static bool compileThreadActive {
 			get {
 				lock(_compileThreadActiveLock) {
 					return _compileThreadActive;
@@ -253,8 +255,9 @@ namespace Ink.UnityIntegration {
 				}
 			}
 		}
-		static bool _compileThreadActive;
-		static object _compileThreadActiveLock = new object();
+
+        private static bool _compileThreadActive;
+        private static object _compileThreadActiveLock = new object();
 		#endregion
 
 		#if UNITY_2020_2_OR_NEWER
@@ -267,15 +270,15 @@ namespace Ink.UnityIntegration {
 		// This ensures they're remembered when you exit play mode and can be compiled
 		// TODO - It might be safer for this to track the DefaultAsset for the ink file, rather than the path?
 		[SerializeField]
-		List<string> pendingCompilationStack = new List<string>();
+        private List<string> pendingCompilationStack = new List<string>();
 
 		// The state of files currently being compiled.
 		[SerializeField]
-		List<InkCompiler.CompilationStackItem> compilationStack = new List<InkCompiler.CompilationStackItem>();
+        private List<InkCompiler.CompilationStackItem> compilationStack = new List<InkCompiler.CompilationStackItem>();
 		#endregion
 		
 		[System.Serializable]
-		class CompilationStackItem {
+        private class CompilationStackItem {
 			public CompilationStackItemState state = CompilationStackItemState.Queued;
 			public bool immediate;
 			public InkFile inkFile;
@@ -326,10 +329,10 @@ namespace Ink.UnityIntegration {
 		}
 
 
-		#region Init, Update, Saving
+        #region Init, Update, Saving
         // Ensure we save the InkCompiler state when we save assets.
-        class AssetSaver : UnityEditor.AssetModificationProcessor {
-            static string[] OnWillSaveAssets(string[] paths) {
+        private class AssetSaver : UnityEditor.AssetModificationProcessor {
+            private static string[] OnWillSaveAssets(string[] paths) {
                 InkCompiler.instance.Save(true);
                 return paths;
             }
@@ -337,7 +340,7 @@ namespace Ink.UnityIntegration {
 
 		// This is called when Unity recompiles. 
 		[InitializeOnLoadMethod]
-		static void OnProjectLoadedInEditor() {
+        private static void OnProjectLoadedInEditor() {
 			#if UNITY_2017_1_OR_NEWER
 			EditorApplication.playModeStateChanged += OnPlayModeChange;
 			#else
@@ -423,13 +426,13 @@ namespace Ink.UnityIntegration {
 			UpdateProgressBar();
 			#endif
 		}
-		#endregion
-		
+        #endregion
 
-		#region Compilation
 
-		// Move files from the pendingCompilationStack to the compilationStack
-		static void CompilePendingFiles () {
+        #region Compilation
+
+        // Move files from the pendingCompilationStack to the compilationStack
+        private static void CompilePendingFiles () {
 			InkLibrary.CreateOrReadUpdatedInkFiles (instance.pendingCompilationStack);
 			foreach (var pendingMasterFile in GetUniqueMasterInkFilesToCompile(instance.pendingCompilationStack))
 				CompileInk(pendingMasterFile);
@@ -506,9 +509,9 @@ namespace Ink.UnityIntegration {
 				}
 			}
 		}
-	
-		// Removes a file from the compilation stack.
-        static void RemoveCompilingFile (int index) {
+
+        // Removes a file from the compilation stack.
+        private static void RemoveCompilingFile (int index) {
             instance.compilationStack.RemoveAt(index);
             instance.Save(true);
             // Progress bar prevents delayCall callback from firing in Linux Editor, locking the
@@ -750,11 +753,11 @@ namespace Ink.UnityIntegration {
 			}
 			
 		}
-		#endregion
+        #endregion
 
-		
-		#region Progress Bar
-		static void UpdateProgressBar () {
+
+        #region Progress Bar
+        private static void UpdateProgressBar () {
 			if(instance.compilationStack.Count == 0) return;
 			if(buildBlocked || playModeBlocked || EditorApplication.isPlaying) ShowProgressBar();
 			else EditorUtility.ClearProgressBar();
@@ -783,11 +786,11 @@ namespace Ink.UnityIntegration {
 			progress /= instance.compilationStack.Count;
 			return progress;
 		}
-		#endregion
+        #endregion
 
 
-		#region Prevent entering Play Mode while mid-compile
-		#if UNITY_2017_1_OR_NEWER
+        #region Prevent entering Play Mode while mid-compile
+#if UNITY_2017_1_OR_NEWER
 		static void OnPlayModeChange (PlayModeStateChange mode) {
 			if(mode == PlayModeStateChange.EnteredEditMode && instance.pendingCompilationStack.Count > 0)
 				CompilePendingFiles();
@@ -796,8 +799,8 @@ namespace Ink.UnityIntegration {
 			if(mode == PlayModeStateChange.EnteredPlayMode && executingCompilationStack)
 				EnteredPlayModeWhenCompiling();
 		}
-		#else
-		static void LegacyOnPlayModeChange () {
+#else
+        private static void LegacyOnPlayModeChange () {
 			if(!EditorApplication.isPlayingOrWillChangePlaymode && EditorApplication.isPlaying && instance.pendingCompilationStack.Count > 0) 
 				CompilePendingFiles();
 			if(EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying && compiling)
@@ -805,16 +808,16 @@ namespace Ink.UnityIntegration {
 			if(EditorApplication.isPlayingOrWillChangePlaymode && EditorApplication.isPlaying && compiling)
 				EnteredPlayModeWhenCompiling();
 		}
-		#endif
+#endif
 
-		static void BlockPlayMode () {
+        private static void BlockPlayMode () {
 			EditorApplication.isPlaying = false;
 			var percentage = String.Format("{0:P0}.", GetEstimatedCompilationProgress());
 			Debug.LogWarning("Delayed entering play mode because Ink is still compiling ("+percentage+"). Will enter play mode on completion.");
 			playModeBlocked = true;
 		}
 
-		static void EnteredPlayModeWhenCompiling () {
+        private static void EnteredPlayModeWhenCompiling () {
 			Debug.LogError("Entered Play Mode while Ink was still compiling! Your story will not be up to date. Recommend exiting and re-entering play mode.\nWe normally delay entering play mode when compiling, so you've found an edge case!");
 		}
 		#endregion

@@ -268,7 +268,8 @@ namespace Ink.Runtime
                 return _originNames;
             }
         }
-        List<string> _originNames;
+
+        private List<string> _originNames;
 
         public void SetInitialOriginName (string initialOriginName)
         {
@@ -575,7 +576,7 @@ namespace Ink.Runtime
             return ownHash;
         }
 
-        List<KeyValuePair<InkListItem, int>> orderedItems {
+        private List<KeyValuePair<InkListItem, int>> orderedItems {
             get {
                 var ordered = new List<KeyValuePair<InkListItem, int>>();
                 ordered.AddRange(this);

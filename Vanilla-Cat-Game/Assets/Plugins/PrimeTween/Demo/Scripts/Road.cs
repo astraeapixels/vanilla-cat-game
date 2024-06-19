@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class Road : Animatable {
-        [SerializeField] MeshRenderer roadModel;
-        [SerializeField] AnimationCurve ease;
-        float currentSpeed;
+        [SerializeField] private MeshRenderer roadModel;
+        [SerializeField] private AnimationCurve ease;
+        private float currentSpeed;
 
-        void Awake() {
+        private void Awake() {
             _ = roadModel.material; // copy shared material
         }
 
@@ -21,7 +21,7 @@ namespace PrimeTweenDemo {
             return sequence;
         }
 
-        void Update() {
+        private void Update() {
             roadModel.material.mainTextureOffset += new Vector2(-1f, 1f) * currentSpeed * Time.deltaTime;
         }
     }

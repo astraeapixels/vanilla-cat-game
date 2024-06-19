@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class Door : Animatable {
-        [SerializeField] CameraController cameraController;
-        [SerializeField] Transform animationAnchor;
-        bool isClosed;
+        [SerializeField] private CameraController cameraController;
+        [SerializeField] private Transform animationAnchor;
+        private bool isClosed;
 
         public override void OnClick() {
             Animate(!isClosed);

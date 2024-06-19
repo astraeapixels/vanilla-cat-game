@@ -10,24 +10,24 @@ using Vector3 = UnityEngine.Vector3;
 public class CameraBounds : MonoBehaviour
 {
 
-    [SerializeField] GameObject player;
-    [SerializeField] float timeOffset;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float timeOffset;
 
-    [SerializeField] Vector2 posOffset;
+    [SerializeField] private Vector2 posOffset;
     
-    [SerializeField] float leftLimit;
-    [SerializeField] float rightLimit;
-    [SerializeField] float bottomLimit;
-    [SerializeField] float topLimit;
+    [SerializeField] private float leftLimit;
+    [SerializeField] private float rightLimit;
+    [SerializeField] private float bottomLimit;
+    [SerializeField] private float topLimit;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {   
         Vector3 startPos = transform.position;
         Vector3 endPos = player.transform.position;

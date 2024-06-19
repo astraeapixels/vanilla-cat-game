@@ -7,29 +7,31 @@ using UnityEngine;
 namespace PrimeTweenDemo {
     public class Demo : MonoBehaviour {
         #if PRIME_TWEEN_INSTALLED
-        [SerializeField] AnimateAllType animateAllType; enum AnimateAllType { Sequence, Async, Coroutine }
-        [SerializeField] Slider sequenceTimelineSlider;
-        [SerializeField] Text pausedLabel;
-        [SerializeField] Button animateAllPartsButton;
-        [SerializeField] TypewriterAnimatorExample typewriterAnimatorExample;
-        [SerializeField] Animatable[] animatables;
-        [SerializeField] Wheels wheels;
-        [SerializeField, Range(0.5f, 5f)] float timeScale = 1;
-        bool isAnimatingWithCoroutineOrAsync;
+        [SerializeField] private AnimateAllType animateAllType;
+
+        private enum AnimateAllType { Sequence, Async, Coroutine }
+        [SerializeField] private Slider sequenceTimelineSlider;
+        [SerializeField] private Text pausedLabel;
+        [SerializeField] private Button animateAllPartsButton;
+        [SerializeField] private TypewriterAnimatorExample typewriterAnimatorExample;
+        [SerializeField] private Animatable[] animatables;
+        [SerializeField] private Wheels wheels;
+        [SerializeField, Range(0.5f, 5f)] private float timeScale = 1;
+        private bool isAnimatingWithCoroutineOrAsync;
         public Sequence animateAllSequence;
 
-        void Awake() {
+        private void Awake() {
             PrimeTweenConfig.SetTweensCapacity(100);
         }
 
-        void OnEnable() {
+        private void OnEnable() {
             sequenceTimelineSlider.fillRect.gameObject.SetActive(false);
             sequenceTimelineSlider.onValueChanged.AddListener(SequenceTimelineSliderChanged);
         }
 
-        void OnDisable() => sequenceTimelineSlider.onValueChanged.RemoveListener(SequenceTimelineSliderChanged);
-        
-        void SequenceTimelineSliderChanged(float sliderValue) {
+        private void OnDisable() => sequenceTimelineSlider.onValueChanged.RemoveListener(SequenceTimelineSliderChanged);
+
+        private void SequenceTimelineSliderChanged(float sliderValue) {
             if (!notifySliderChanged) {
                 return;
             }
@@ -40,9 +42,9 @@ namespace PrimeTweenDemo {
             animateAllSequence.progressTotal = sliderValue;
         }
 
-        bool notifySliderChanged = true;
-        
-        void UpdateSlider() {
+        private bool notifySliderChanged = true;
+
+        private void UpdateSlider() {
             var isSliderVisible = animateAllType == AnimateAllType.Sequence && !isAnimatingWithCoroutineOrAsync;
             sequenceTimelineSlider.gameObject.SetActive(isSliderVisible);
             if (!isSliderVisible) {
@@ -58,7 +60,7 @@ namespace PrimeTweenDemo {
             }
         }
 
-        void Update() {
+        private void Update() {
             Time.timeScale = timeScale;
             
             animateAllPartsButton.GetComponent<Image>().enabled = !isAnimatingWithCoroutineOrAsync;
@@ -87,7 +89,7 @@ namespace PrimeTweenDemo {
         /// Tweens and sequences can be grouped with and chained to other tweens and sequences.
         /// The advantage of using this method instead of <see cref="AnimateAllAsync"/> and <see cref="AnimateAllCoroutine"/> is the ability to stop/complete/pause the combined sequence.
         /// Also, this method doesn't generate garbage related to starting a coroutine or awaiting an async method.
-        void AnimateAllSequence(bool toEndValue) {
+        private void AnimateAllSequence(bool toEndValue) {
             if (animateAllSequence.isAlive) {
                 animateAllSequence.isPaused = !animateAllSequence.isPaused;
                 return;
@@ -104,7 +106,7 @@ namespace PrimeTweenDemo {
         }
 
         /// Tweens and sequences can be awaited in async methods.
-        async void AnimateAllAsync(bool toEndValue) {
+        private async void AnimateAllAsync(bool toEndValue) {
             isAnimatingWithCoroutineOrAsync = true;
             foreach (var animatable in animatables) {
                 await animatable.Animate(toEndValue);
@@ -113,7 +115,7 @@ namespace PrimeTweenDemo {
         }
 
         /// Tweens and sequences can also be used in coroutines with the help of ToYieldInstruction() method.
-        System.Collections.IEnumerator AnimateAllCoroutine(bool toEndValue) {
+        private System.Collections.IEnumerator AnimateAllCoroutine(bool toEndValue) {
             isAnimatingWithCoroutineOrAsync = true;
             foreach (var animatable in animatables) {
                 yield return animatable.Animate(toEndValue).ToYieldInstruction();

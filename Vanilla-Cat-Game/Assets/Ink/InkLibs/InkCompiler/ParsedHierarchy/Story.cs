@@ -264,7 +264,7 @@ namespace Ink.Parsed
             }
         }
 
-        void FlattenContainersIn (Runtime.Container container)
+        private void FlattenContainersIn (Runtime.Container container)
         {
             // Need to create a collection to hold the inner containers
             // because otherwise we'd end up modifying during iteration
@@ -292,7 +292,7 @@ namespace Ink.Parsed
             }
         }
 
-        void TryFlattenContainer (Runtime.Container container)
+        private void TryFlattenContainer (Runtime.Container container)
         {
             if (container.namedContent.Count > 0 || container.hasValidName || _dontFlattenContainers.Contains(container))
                 return;
@@ -377,9 +377,7 @@ namespace Ink.Parsed
             _dontFlattenContainers.Add (container);
         }
 
-
-
-        void NameConflictError (Parsed.Object obj, string name, Parsed.Object existingObj, string typeNameToPrint)
+        private void NameConflictError (Parsed.Object obj, string name, Parsed.Object existingObj, string typeNameToPrint)
         {
             obj.Error (typeNameToPrint+" '" + name + "': name has already been used for a " + existingObj.typeName.ToLower() + " on " +existingObj.debugMetadata);
         }
@@ -496,13 +494,11 @@ namespace Ink.Parsed
             }
         }
 
-        ErrorHandler _errorHandler;
-        bool _hadError;
-        bool _hadWarning;
-
-        HashSet<Runtime.Container> _dontFlattenContainers = new HashSet<Runtime.Container>();
-
-        Dictionary<string, Parsed.ListDefinition> _listDefs;
+        private ErrorHandler _errorHandler;
+        private bool _hadError;
+        private bool _hadWarning;
+        private HashSet<Runtime.Container> _dontFlattenContainers = new HashSet<Runtime.Container>();
+        private Dictionary<string, Parsed.ListDefinition> _listDefs;
 	}
 }
 

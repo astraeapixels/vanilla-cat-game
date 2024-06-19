@@ -13,7 +13,7 @@ public class LoneFishFollowPlayer : MonoBehaviour
     private Transform player;
 
     // Start is called before the first frame update
-    void Update()
+    private void Update()
     {   
         //defining variables
        loneFish = GameObject.FindWithTag("Fish").transform;
@@ -24,7 +24,7 @@ public class LoneFishFollowPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
         dist = Vector3.Distance(loneFish.position, player.transform.position);
 

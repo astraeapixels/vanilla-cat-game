@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class SwipeTutorial : MonoBehaviour {
-        Tween tween;
+        private Tween tween;
 
-        void OnEnable() {
+        private void OnEnable() {
             #if !UNITY_2019_1_OR_NEWER || UNITY_UGUI_INSTALLED
             tween = Tween.Alpha(GetComponent<UnityEngine.UI.Text>(), 1, 0, 1, Ease.InOutSine, -1, CycleMode.Yoyo);
             #else

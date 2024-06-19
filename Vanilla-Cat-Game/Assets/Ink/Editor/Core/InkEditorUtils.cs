@@ -12,7 +12,7 @@ using Path = System.IO.Path;
 namespace Ink.UnityIntegration {
 	[InitializeOnLoad]
 	public static class InkEditorUtils {
-		class CreateInkAssetAction : EndNameEditAction {
+        private class CreateInkAssetAction : EndNameEditAction {
 			public override void Action(int instanceId, string pathName, string resourceFile) {
 				var text = "";
 				if(File.Exists(resourceFile)) {
@@ -26,7 +26,7 @@ namespace Ink.UnityIntegration {
 			}
 		}
 		public const string inkFileExtension = ".ink";
-		const string lastCompileTimeKey = "InkIntegrationLastCompileTime";
+        private const string lastCompileTimeKey = "InkIntegrationLastCompileTime";
 
 		private static Texture2D _inkLogoIcon;
 		public static Texture2D inkLogoIcon {
@@ -81,8 +81,8 @@ namespace Ink.UnityIntegration {
 			var assetPath = CreateScriptAsset(filePath, text);
 			return AssetDatabase.LoadAssetAtPath<DefaultAsset>(assetPath);
 		}
-		
-		static string CreateScriptAsset(string pathName, string text) {
+
+        private static string CreateScriptAsset(string pathName, string text) {
 			string fullPath = Path.GetFullPath(pathName);
 			fullPath = fullPath.Replace('\\', '/');
 			var assetRelativePath = fullPath;

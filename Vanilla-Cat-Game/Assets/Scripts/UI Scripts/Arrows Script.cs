@@ -4,7 +4,7 @@ using PrimeTween;
 
 public class ArrowsScript : MonoBehaviour
 {
-    [SerializeField] Button leftButton, rightButton;
+    [SerializeField] private Button leftButton, rightButton;
     [SerializeField] private Vector3 pageStep;
     [SerializeField] private RectTransform initialRect;
     [SerializeField] private float duration;
@@ -13,11 +13,11 @@ public class ArrowsScript : MonoBehaviour
     [SerializeField] private int maxPreviewIndex;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {   
     }
 
-    void Awake()
+    private void Awake()
     {
         currentPreviewIndex = 1;
         targetPos = initialRect.localPosition;

@@ -435,9 +435,9 @@ namespace Ink.Runtime
 			}
 		}
 
-        List<Thread> _threads;
-        int _threadCounter;
-        Pointer _startOfRoot;
+        private List<Thread> _threads;
+        private int _threadCounter;
+        private Pointer _startOfRoot;
     }
 }
 

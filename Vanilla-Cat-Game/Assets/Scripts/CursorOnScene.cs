@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CursorOnScene : MonoBehaviour
 {
-   
-   void Start()
+    private void Start()
    {
         CursorController.instance.ActivateNormalCursor();
    }
 
-    void Update()
+    private void Update()
     {
            if(Input.GetMouseButtonDown(0)){
                 CursorController.instance.ActivatePressedCursor();

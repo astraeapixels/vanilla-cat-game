@@ -44,7 +44,7 @@ namespace Ink.Parsed
             this.variableDeclarations = new Dictionary<string, VariableAssignment> ();
 		}
 
-        List<Parsed.Object> SplitWeaveAndSubFlowContent(List<Parsed.Object> contentObjs, bool isRootStory)
+        private List<Parsed.Object> SplitWeaveAndSubFlowContent(List<Parsed.Object> contentObjs, bool isRootStory)
         {
             var weaveObjs = new List<Parsed.Object> ();
             var subFlowObjs = new List<Parsed.Object> ();
@@ -264,7 +264,7 @@ namespace Ink.Parsed
             return container;
         }
 
-        void GenerateArgumentVariableAssignments(Runtime.Container container)
+        private void GenerateArgumentVariableAssignments(Runtime.Container container)
         {
             if (this.arguments == null || this.arguments.Count == 0) {
                 return;
@@ -320,7 +320,7 @@ namespace Ink.Parsed
             return deepSearch ? DeepSearchForAnyLevelContent(name) : null;
         }
 
-        Parsed.Object DeepSearchForAnyLevelContent(string name)
+        private Parsed.Object DeepSearchForAnyLevelContent(string name)
         {
             var weaveResultSelf = ContentWithNameAtLevel (name, level:FlowLevel.WeavePoint, deepSearch: false);
             if (weaveResultSelf) {
@@ -370,7 +370,7 @@ namespace Ink.Parsed
             }
         }
 
-        void CheckForDisallowedFunctionFlowControl()
+        private void CheckForDisallowedFunctionFlowControl()
         {
             if (!(this is Knot)) {
                 Error ("Functions cannot be stitches - i.e. they should be defined as '== function myFunc ==' rather than public to another knot.");
@@ -395,7 +395,7 @@ namespace Ink.Parsed
             }
         }
 
-        void WarningInTermination(Parsed.Object terminatingObject)
+        private void WarningInTermination(Parsed.Object terminatingObject)
         {
             string message = "Apparent loose end exists where the flow runs out. Do you need a '-> DONE' statement, choice or divert?";
             if (terminatingObject.parent == _rootWeave && _firstChildFlow) {
@@ -428,11 +428,11 @@ namespace Ink.Parsed
             return typeName+" '" + identifier + "'";
         }
 
-        Weave _rootWeave;
-        Dictionary<string, FlowBase> _subFlowsByName;
-        Runtime.Divert _startingSubFlowDivert;
-        Runtime.Object _startingSubFlowRuntime;
-        FlowBase _firstChildFlow;
+        private Weave _rootWeave;
+        private Dictionary<string, FlowBase> _subFlowsByName;
+        private Runtime.Divert _startingSubFlowDivert;
+        private Runtime.Object _startingSubFlowRuntime;
+        private FlowBase _firstChildFlow;
 
 	}
 }

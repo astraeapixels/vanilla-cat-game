@@ -3,14 +3,15 @@ using UnityEngine;
 public class Grabbable : MonoBehaviour
 {
     private bool canGrab;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(canGrab){
             if(Input.GetMouseButtonDown(0)){

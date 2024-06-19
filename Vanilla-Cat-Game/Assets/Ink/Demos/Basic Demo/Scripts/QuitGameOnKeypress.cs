@@ -3,8 +3,8 @@
 public class QuitGameOnKeypress : MonoBehaviour {
 	
 	public KeyCode key = KeyCode.Escape;
-	
-	void Update () {
+
+    private void Update () {
 		if(Input.GetKeyDown(key)) Application.Quit();
 	}
 }

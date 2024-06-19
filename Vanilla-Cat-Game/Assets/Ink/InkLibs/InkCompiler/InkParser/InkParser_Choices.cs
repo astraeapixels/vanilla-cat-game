@@ -222,7 +222,7 @@ namespace Ink
             return name;
         }
 
-        bool _parsingChoice;
+        private bool _parsingChoice;
 	}
 }
 

@@ -131,7 +131,7 @@ namespace Ink.Parsed
             return container;
         }
 
-        Runtime.Container GenerateRuntimeForContent()
+        private Runtime.Container GenerateRuntimeForContent()
         {
             // Empty branch - create empty container
             if (_innerWeave == null) {
@@ -148,11 +148,10 @@ namespace Ink.Parsed
             base.ResolveReferences (context);
         }
 
-        Runtime.Container _contentContainer;
-        Runtime.Divert _conditionalDivert;
-        Expression _ownExpression;
-
-        Weave _innerWeave;
+        private Runtime.Container _contentContainer;
+        private Runtime.Divert _conditionalDivert;
+        private Expression _ownExpression;
+        private Weave _innerWeave;
     }
 }
 

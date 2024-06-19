@@ -421,7 +421,7 @@ namespace Ink
             return name;
         }
 
-        CharacterSet identifierCharSet {
+        private CharacterSet identifierCharSet {
             get {
                 if (_identifierCharSet == null) {
                     (_identifierCharSet = new CharacterSet ())

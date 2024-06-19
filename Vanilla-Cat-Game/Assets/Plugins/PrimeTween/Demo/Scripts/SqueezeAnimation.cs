@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace PrimeTweenDemo {
     public class SqueezeAnimation : MonoBehaviour {
-        [SerializeField] Transform target;
-        Tween tween;
+        [SerializeField] private Transform target;
+        private Tween tween;
 
         public void PlayAnimation() {
             if (!tween.isAlive) {

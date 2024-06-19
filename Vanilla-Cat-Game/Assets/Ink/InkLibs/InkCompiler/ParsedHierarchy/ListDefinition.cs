@@ -87,7 +87,7 @@ namespace Ink.Parsed
             }
         }
 
-        Dictionary<string, ListElementDefinition> _elementsByName;
+        private Dictionary<string, ListElementDefinition> _elementsByName;
     }
 
     public class ListElementDefinition : Parsed.Object

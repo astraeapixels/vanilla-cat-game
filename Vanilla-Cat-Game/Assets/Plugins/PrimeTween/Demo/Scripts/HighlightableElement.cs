@@ -6,7 +6,7 @@ namespace PrimeTweenDemo {
         [SerializeField] public Transform highlightAnchor;
         public MeshRenderer[] models { get; private set; }
 
-        void OnEnable() {
+        private void OnEnable() {
             models = GetComponentsInChildren<MeshRenderer>();
             foreach (var mr in models) {
                 _ = mr.material; // copy shared material
