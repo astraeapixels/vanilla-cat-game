@@ -9,6 +9,7 @@ TagManager:
   - Cursor
   - DialoguePanel
   - UIDialogueExitButton
+  - Lemon Emoticons
   layers:
   - Default
   - TransparentFX
