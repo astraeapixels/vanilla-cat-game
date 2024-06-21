@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1579783588fe55d40bd2d5e20d8e4c85, type: 3}
   m_Name: Relationships
   m_EditorClassIdentifier: Assembly-CSharp::EmotionAndDialogueRelationships
-  currentEmotion: []
-  emotion: 1
-  defaultEmotion: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  emoticonSprites: []
-  currentSprite: {fileID: 0}
+  defaultMood: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
+  happy: {fileID: 21300000, guid: ab22cae7f26b97e43be9a6cf71d949c6, type: 3}
+  sassy: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
+  flirty: {fileID: 0}
+  soft: {fileID: 0}
+  angry: {fileID: 0}
+  confused: {fileID: 0}
+  sad: {fileID: 0}
+  surprised: {fileID: 0}
+  scared: {fileID: 0}
+  inLove: {fileID: 0}

@@ -13,39 +13,14 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
-    [SerializeField] private Image defaultEmoticon;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private EmotionsAndSprites emotionsAndSprites;
-    [SerializeField] private Sprite currentEmoticons;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
-
-    // public void Emoticon()
-    // {
-    //     currentEmoticons = emotionType switch
-    //     {
-    //         Emotion.Default => emotionsAndSprites.defaultMood,
-    //         Emotion.Happy => emotionsAndSprites.happy,
-    //         Emotion.Sassy => emotionsAndSprites.sassy,
-    //         Emotion.Flirty => emotionsAndSprites.flirty,
-    //         Emotion.Soft => emotionsAndSprites.soft,
-    //         Emotion.Angry => emotionsAndSprites.angry,
-    //         Emotion.Confused => emotionsAndSprites.confused,
-    //         Emotion.Sad => emotionsAndSprites.sad,
-    //         Emotion.Surprised => emotionsAndSprites.surprised,
-    //         Emotion.Scared => emotionsAndSprites.scared,
-    //         Emotion.InLove => emotionsAndSprites.inLove,
-    //         _ => emotionsAndSprites.defaultMood,
-    //     };
-    // }
     
     private void Start()
     {   
-        currentEmoticons = emotionsAndSprites.defaultMood;
-        spriteRenderer.sprite = currentEmoticons;
         exitButton.onClick.AddListener(ExitDialogue);
     }
 
@@ -74,7 +49,7 @@ public class UIDialoguePrefab : MonoBehaviour
     private void TriggerDialogue()
     {
         if(!didDialoguePlay)
-        {  
+        {
             cinBars.ShowBars();
             StartDialogue();       
         }
@@ -95,16 +70,14 @@ public class UIDialoguePrefab : MonoBehaviour
         PanelEnterAndExit(74f, fadeInTime);
         stringIndex = 0;
         Time.timeScale = .5f;
-        //ShowSprite(spriteRenderer, dialogueText, dialogueLines, stringIndex, currentEmoticons, typingTime);
         ShowText(dialogueText, dialogueLines, stringIndex, typingTime); 
     }
 
     private void NextLineInDialogue()
     {   
         stringIndex++;
-        if(stringIndex < dialogueLines.Length)
+        if(stringIndex < dialogueLines.Length )
         {
-            //ShowSprite(spriteRenderer, dialogueText, dialogueLines, stringIndex, currentEmoticons, typingTime);
             ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
         }
         else
@@ -125,15 +98,6 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         dialogueLines = newLines;
     }
-
-    // private static Tween ShowSprite(SpriteRenderer _spriteRenderer, TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, Sprite _currentEmoticons, float _typingTime)
-    // {   
-    //     _dialogueText.SetText(_dialogueLines[_stringIndex]);
-    //     int spriteCount = _dialogueLines.Length;
-    //     float duration = _typingTime;
-    //     _spriteRenderer.sprite = _currentEmoticons;
-    //     return Tween.Alpha(_spriteRenderer, spriteCount, duration, Ease.Linear);
-    // }
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
     {
