@@ -1,15 +1,6 @@
 
 using UnityEngine;
-public class TriggerQuestion : LemonDialogueChoices
+public class TriggerQuestion : MonoBehaviour
 {
-    [SerializeField] private LemonDialogueChoices dialogueChoices;
-    public void Start()
-    {
-        dialogueChoices.LemonHasToChoose += dialogueChoices.Initialize;
-    }
-
-    public void OnDestroy()
-    {
-        dialogueChoices.LemonHasToChoose -= dialogueChoices.Initialize;
-    }
+    
 }

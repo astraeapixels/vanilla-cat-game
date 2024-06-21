@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 066647164d8c39642bc1a88a63e3ee6e, type: 3}
-  m_Name: New Lemon Conversation
+  m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
+  m_Name: New Lemon Solo Conversation 1
   m_EditorClassIdentifier: 
-  emotionType: 0
-  dialogueLines:
-  - 
-  - 
-  questionsAsked: {fileID: 11400000, guid: c18b4a09dbd3ee64caae45ca3a60a5b5, type: 2}
-  nextConversation: {fileID: 0}
+  convoType: {fileID: 0}
+  dialogue: []
+  optionText: []
+  option1: {fileID: 0}
+  option2: {fileID: 0}
+  option3: {fileID: 0}
+  option4: {fileID: 0}

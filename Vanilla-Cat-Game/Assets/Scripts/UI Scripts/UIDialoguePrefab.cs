@@ -13,6 +13,10 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
+    [SerializeField] private Image defaultImage;
+    [SerializeField] private Sprite firstEmotion;
+    [SerializeField] private Sprite secondEmotion;
+    [SerializeField] private Sprite thirdEmotion;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -76,7 +80,7 @@ public class UIDialoguePrefab : MonoBehaviour
     private void NextLineInDialogue()
     {   
         stringIndex++;
-        if(stringIndex < dialogueLines.Length )
+        if(stringIndex < dialogueLines.Length)
         {
             ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
         }

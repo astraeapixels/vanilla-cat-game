@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d91eb59ba2891b4e9fbd2f822ebf0a5, type: 3}
-  m_Name: Questions
+  m_Script: {fileID: 11500000, guid: 1957995d11577dc458f4eef8cfa45b59, type: 3}
+  m_Name: New Lemon Conversation Type
   m_EditorClassIdentifier: 
-  questionAsked: What is your favorite color?
-  choices:
-  - choiceLines: Blue
-    text: 
-  - choiceLines: Purple
-    text: 
+  convoType: 
