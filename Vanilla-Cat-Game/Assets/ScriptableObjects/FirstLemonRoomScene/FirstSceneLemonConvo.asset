@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
   m_Name: FirstSceneLemonConvo
   m_EditorClassIdentifier: 
-  convoType: 0
+  conversationTypes: 0000000000000000000000000000000001000000
   dialogue:
   - Hello I am Lemon!!
   - This is where I live. Welcome~!!
   - I hope you like what I have to show you!
   - I'll do my best to make it really fun!!
-  optionText: []
-  option1: {fileID: 0}
-  option2: {fileID: 0}
-  option3: {fileID: 0}
-  option4: {fileID: 0}
+  - So what do you like about me??
+  optionText:
+  - you like my soft furry skin
+  - you like ocean blue eyes
+  option1: {fileID: 11400000, guid: b29021ba6406b9e468577e19e14106b2, type: 2}
+  option2: {fileID: 11400000, guid: fb171c8c3f75d6244a71a8de83052faf, type: 2}
+  option3: {fileID: 11400000, guid: c18bfbffa1567a245a8daae6386b590d, type: 2}
+  option4: {fileID: 11400000, guid: 78a18d20def191b4cb12e5caca4c8b83, type: 2}

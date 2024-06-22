@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Runtime.CompilerServices;
-using System.Diagnostics;
 
 [assembly: InternalsVisibleTo("tests")]
 
 namespace Ink.Parsed
 {
-	public class Story : FlowBase
+    public class Story : FlowBase
     {
         public override FlowLevel flowLevel { get { return FlowLevel.Story; } }
 

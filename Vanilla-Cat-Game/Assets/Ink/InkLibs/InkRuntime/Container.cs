@@ -1,13 +1,11 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.ComponentModel;
 
 namespace Ink.Runtime
 {
-	public class Container : Runtime.Object, INamedContent
+    public class Container : Runtime.Object, INamedContent
 	{
 		public string name { get; set; }
 

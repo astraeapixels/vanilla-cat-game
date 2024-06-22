@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
 namespace Ink
 {
-	public class StringParser
+    public class StringParser
 	{
 		public delegate object ParseRule();
 

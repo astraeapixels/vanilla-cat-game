@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 
-namespace Ink.UnityIntegration {
+namespace Ink.UnityIntegration
+{
 
-	[CustomEditor(typeof(InkSettings))]
+    [CustomEditor(typeof(InkSettings))]
 	public class InkSettingsEditor : Editor {
 
 		#pragma warning disable

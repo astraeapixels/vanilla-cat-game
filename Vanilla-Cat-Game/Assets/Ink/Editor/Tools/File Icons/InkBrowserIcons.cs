@@ -1,5 +1,4 @@
-﻿using System.IO;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 /* 
@@ -7,8 +6,9 @@ using UnityEngine;
 * Recommended icon sizes - small: 16x16 px, large: 64x64 px;
 */
 
-namespace Ink.UnityIntegration {
-	[InitializeOnLoad]
+namespace Ink.UnityIntegration
+{
+    [InitializeOnLoad]
 	public class InkBrowserIcons {
 		private static bool isRetina {
 			get {

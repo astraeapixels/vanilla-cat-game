@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using PrimeTween;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -14,20 +15,25 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
     [SerializeField] private GameObject[] optionButton;
-    [SerializeField] private GameObject[] options;
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject choicesPanel;
     [SerializeField] private LemonSoloConversation conversation;
-    [SerializeField] private ConversationType conversationType;
     [SerializeField] private Image defaultImage;
     [SerializeField] private Sprite currentEmotion;
+    [SerializeField] private List<Sprite> emotions;
     [TextArea(1,6)] private string[] dialogueLines;
-    private bool didDialoguePlay;
+    private int currentEmotionIndex;
     private int stringIndex;
+    private int optionIndex;
+    private bool didDialoguePlay;
     private float typingTime = .20f;
     public delegate void ActivateDialogue();
     public event ActivateDialogue DialoguePlayed;
     
     private void Start()
     {   
+        dialoguePanel.SetActive(false);
+        choicesPanel.SetActive(false);
         dialogueLines = conversation.dialogue;
         exitButton.onClick.AddListener(ExitDialogue);
     }
@@ -41,6 +47,7 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
+            dialoguePanel.SetActive(true);
             TriggerDialogue();
         }
         else if(Input.GetKeyDown(KeyCode.Escape))
@@ -78,7 +85,8 @@ public class UIDialoguePrefab : MonoBehaviour
         PanelEnterAndExit(74f, fadeInTime);
         stringIndex = 0;
         Time.timeScale = .5f;
-        ShowText(dialogueText, dialogueLines, stringIndex, typingTime); 
+        UpdatePortrait();
+        ShowText(dialogueText, dialogueLines, stringIndex, typingTime);   
     }
 
     private void NextLineInDialogue()
@@ -86,6 +94,7 @@ public class UIDialoguePrefab : MonoBehaviour
         stringIndex++;
         if(stringIndex < dialogueLines.Length)
         {
+            UpdatePortrait();
             ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
         }
         else
@@ -94,28 +103,69 @@ public class UIDialoguePrefab : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    private void EndDialogue()
     {
         didDialoguePlay = false;
         cinBars.HideBars();
         PanelEnterAndExit(-74, fadeOutTime);
         Time.timeScale = 1f;
+        dialoguePanel.SetActive(false);
+        choicesPanel.SetActive(false);
     }
 
     private void StartBranch()
     {
-        for(int i = 0; i < conversation.optionText.Length; i++)
+        if(conversation.conversationTypes[optionIndex] == ConversationType.Branch)
         {
-            if(conversation.optionText[i] == null)
+            for(int i = 0; i < conversation.optionText.Length; i++)
             {
-                optionButton[i].SetActive(false);
+                if(conversation.optionText[i] == null)
+                {
+                    optionButton[i].SetActive(false);
+                }
+                else
+                {
+                    optionButtonText[i].text = conversation.optionText[i];
+                    optionButton[i].SetActive(true);
+                }
+                optionButton[i].GetComponent<Button>().Select();
             }
-            else
+        }
+    }
+
+    public void OptionSelected(int _optionIndex)
+    {
+        foreach(GameObject button in optionButton)
+        {
+            button.SetActive(false);
+
+            switch(_optionIndex)
             {
-                optionButtonText[i].text = conversation.optionText[i];
-                options[i].SetActive(true);
+                case 0:
+                    conversation = conversation.option1;
+                    break;
+                case 1:
+                    conversation = conversation.option2;
+                    break;
+                case 2:
+                    conversation = conversation.option3;
+                    break;
+                case 3:
+                    conversation = conversation.option4;
+                    break;
             }
-        } 
+            optionIndex = 0;
+        }
+    }
+
+    private void UpdatePortrait()
+    {
+        currentEmotionIndex++;
+        if(currentEmotionIndex >= emotions.Count)
+        {
+            currentEmotionIndex = 0;
+        }
+        defaultImage.sprite = emotions[currentEmotionIndex];
     }
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
@@ -131,3 +181,4 @@ public class UIDialoguePrefab : MonoBehaviour
         Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, _panelYPos), _fadeTime, Ease.InOutQuint, 1);
     }
 }
+public enum ConversationType {Regular, Branch};

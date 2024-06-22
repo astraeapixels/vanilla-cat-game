@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
   m_Name: Option1
   m_EditorClassIdentifier: 
-  convoType: 0
-  dialogue: []
-  optionText: []
+  conversationTypes: 00000000
+  dialogue:
+  - Thank you!! So I've been told that I'm the softest kitty around!!
+  optionText:
+  - Blue
   option1: {fileID: 0}
   option2: {fileID: 0}
   option3: {fileID: 0}

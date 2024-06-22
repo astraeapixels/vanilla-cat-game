@@ -1,25 +1,24 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
 namespace Ink.Runtime
 {
-	/// <summary>
-	/// Simple ink profiler that logs every instruction in the story and counts frequency and timing.
-	/// To use:
-	///  
-	///   var profiler = story.StartProfiling(), 
-	/// 
-	///   (play your story for a bit)
-	/// 
-	///   var reportStr = profiler.Report();
-	/// 
-	///   story.EndProfiling();
-	/// 
-	/// </summary>
-	public class Profiler
+    /// <summary>
+    /// Simple ink profiler that logs every instruction in the story and counts frequency and timing.
+    /// To use:
+    ///  
+    ///   var profiler = story.StartProfiling(), 
+    /// 
+    ///   (play your story for a bit)
+    /// 
+    ///   var reportStr = profiler.Report();
+    /// 
+    ///   story.EndProfiling();
+    /// 
+    /// </summary>
+    public class Profiler
 	{
         /// <summary>
         /// The root node in the hierarchical tree of recorded ink timings.

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
   m_Name: Option2
   m_EditorClassIdentifier: 
-  convoType: 0
-  dialogue: []
+  conversationTypes: 00000000
+  dialogue:
+  - Thanks. I can't help it that I'm adorable in every way~!
   optionText: []
   option1: {fileID: 0}
   option2: {fileID: 0}

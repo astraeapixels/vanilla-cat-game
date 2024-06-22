@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
 #if UNITY_EDITOR && UNITY_2019_1_OR_NEWER
 using System.Linq;
 using UnityEditor;
@@ -8,7 +6,8 @@ using UnityEditorInternal;
 using UnityEngine.Profiling;
 #endif
 
-namespace PrimeTweenDemo {
+namespace PrimeTweenDemo
+{
     public class MeasureMemoryAllocations : MonoBehaviour {
         #pragma warning disable 0414
         [SerializeField] bool logAllocations;
