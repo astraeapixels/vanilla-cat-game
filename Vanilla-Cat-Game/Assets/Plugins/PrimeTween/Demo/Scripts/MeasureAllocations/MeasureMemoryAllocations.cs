@@ -1,8 +1,10 @@
 #if UNITY_EDITOR && UNITY_2019_1_OR_NEWER
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Profiling;
 using UnityEditorInternal;
+using UnityEngine;
 using UnityEngine.Profiling;
 #endif
 

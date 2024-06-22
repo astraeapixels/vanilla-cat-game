@@ -1,4 +1,7 @@
-﻿[CustomEditor(typeof(PixelArtCamera))]
+﻿using UnityEditor;
+using UnityEngine;
+
+[CustomEditor(typeof(PixelArtCamera))]
 public class PixelArtCameraEditor : Editor {
 	SerializedProperty pixels;
 	SerializedProperty pixelsPerUnit;
