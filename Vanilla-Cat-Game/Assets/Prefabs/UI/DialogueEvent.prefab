@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 0}
   dialoguePanel: {fileID: 0}
   choicesPanel: {fileID: 0}
-  conversation: {fileID: 11400000, guid: c18bfbffa1567a245a8daae6386b590d, type: 2}
+  conversation: {fileID: 11400000, guid: a4d96c9828537f8459320e6f1dc955c9, type: 2}
   defaultImage: {fileID: 0}
   currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
   emotions:
@@ -67,7 +67,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
   - {fileID: 21300000, guid: ab22cae7f26b97e43be9a6cf71d949c6, type: 3}
   - {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
-  conversationType: 0000000000000000000000000000000001000000
 --- !u!114 &6359186716335353371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +93,7 @@ MonoBehaviour:
   - {fileID: 0}
   dialoguePanel: {fileID: 0}
   choicesPanel: {fileID: 0}
-  conversation: {fileID: 11400000, guid: c18bfbffa1567a245a8daae6386b590d, type: 2}
+  conversation: {fileID: 11400000, guid: a4d96c9828537f8459320e6f1dc955c9, type: 2}
   defaultImage: {fileID: 0}
   currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
   emotions:
@@ -102,5 +101,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
   - {fileID: 21300000, guid: ab22cae7f26b97e43be9a6cf71d949c6, type: 3}
   - {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
-  conversationType: 01000000
   dialogueManager: {fileID: 24874656197324311}
