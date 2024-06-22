@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
-    [TextArea(1,6)] public string[] dialogueLines;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text[] optionButtonText;
     [SerializeField] private CinematicBars cinBars;
     [SerializeField] private RectTransform dialogueRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
+    [SerializeField] private GameObject[] optionButton;
+    [SerializeField] private GameObject[] options;
+    [SerializeField] private LemonSoloConversation conversation;
+    [SerializeField] private ConversationType conversationType;
     [SerializeField] private Image defaultImage;
-    [SerializeField] private Sprite firstEmotion;
-    [SerializeField] private Sprite secondEmotion;
-    [SerializeField] private Sprite thirdEmotion;
+    [SerializeField] private Sprite currentEmotion;
+    [TextArea(1,6)] private string[] dialogueLines;
     private bool didDialoguePlay;
     private int stringIndex;
     private float typingTime = .20f;
@@ -25,6 +28,7 @@ public class UIDialoguePrefab : MonoBehaviour
     
     private void Start()
     {   
+        dialogueLines = conversation.dialogue;
         exitButton.onClick.AddListener(ExitDialogue);
     }
 
@@ -98,9 +102,20 @@ public class UIDialoguePrefab : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void SetDialogueLines(string[] newLines)
+    private void StartBranch()
     {
-        dialogueLines = newLines;
+        for(int i = 0; i < conversation.optionText.Length; i++)
+        {
+            if(conversation.optionText[i] == null)
+            {
+                optionButton[i].SetActive(false);
+            }
+            else
+            {
+                optionButtonText[i].text = conversation.optionText[i];
+                options[i].SetActive(true);
+            }
+        } 
     }
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)

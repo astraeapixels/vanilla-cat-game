@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7822635790809236032}
   - component: {fileID: 24874656197324311}
-  - component: {fileID: 8948437605177903054}
   - component: {fileID: 6359186716335353371}
   m_Layer: 5
   m_Name: DialogueEvent
@@ -46,39 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55e25b500c8f0141bc26bed5fb25640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - Hello
-  - I'm so happy you're here!!
-  - I love you!!
   dialogueText: {fileID: 0}
+  optionButtonText: []
   cinBars: {fileID: 0}
   dialogueRect: {fileID: 0}
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
-  defaultEmoticon: {fileID: 0}
-  emotionType: 1
-  spriteRenderer: {fileID: 0}
-  emotionsAndSprites: {fileID: 11400000, guid: f01ad7312b71a8a44b438c5a6a597d37, type: 2}
-  currentEmoticons: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
---- !u!114 &8948437605177903054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8859062839623085402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3148e2b38438397469a5e4bc55d897a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newLines:
-  - Hello there!!
-  - my name is Lemon
-  - so happy to meet you!!
-  - Please come and visit me again!!
-  dialogueManager: {fileID: 24874656197324311}
+  optionButton:
+  - {fileID: 0}
+  - {fileID: 0}
+  options:
+  - {fileID: 0}
+  - {fileID: 0}
+  conversation: {fileID: 11400000, guid: a4d96c9828537f8459320e6f1dc955c9, type: 2}
+  conversationType: 0
+  defaultImage: {fileID: 0}
+  currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
 --- !u!114 &6359186716335353371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,16 +74,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b967043a12fb24e8f9e298da58f8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines: []
   dialogueText: {fileID: 0}
+  optionButtonText:
+  - {fileID: 0}
+  - {fileID: 0}
   cinBars: {fileID: 0}
   dialogueRect: {fileID: 0}
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
-  defaultEmoticon: {fileID: 0}
-  emotionType: 1
-  spriteRenderer: {fileID: 0}
-  emotionsAndSprites: {fileID: 11400000, guid: f01ad7312b71a8a44b438c5a6a597d37, type: 2}
-  currentEmoticons: {fileID: 21300000, guid: 9b6313861eed6b744acd78902dcb9368, type: 3}
+  optionButton:
+  - {fileID: 0}
+  - {fileID: 0}
+  options:
+  - {fileID: 0}
+  - {fileID: 0}
+  conversation: {fileID: 11400000, guid: cb27be4c39d2df14eacb53534137a753, type: 2}
+  conversationType: 0
+  defaultImage: {fileID: 0}
+  currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
   dialogueManager: {fileID: 24874656197324311}

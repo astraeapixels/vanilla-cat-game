@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LemonSoloConversation : ScriptableObject
 {
-    public LemonConversationType convoType;
-    [TextArea] public string[] dialogue;
+    public ConversationType convoType;
+    [TextArea(1,6)] public string[] dialogue;
     public string[] optionText;
     public LemonSoloConversation option1;
     public LemonSoloConversation option2;

@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
-  m_Name: New Lemon Solo Conversation 1
+  m_Name: FirstSceneLemonConvo
   m_EditorClassIdentifier: 
   convoType: 0
-  dialogue: []
+  dialogue:
+  - Hello I am Lemon!!
+  - This is where I live. Welcome~!!
+  - I hope you like what I have to show you!
+  - I'll do my best to make it really fun!!
   optionText: []
   option1: {fileID: 0}
   option2: {fileID: 0}
