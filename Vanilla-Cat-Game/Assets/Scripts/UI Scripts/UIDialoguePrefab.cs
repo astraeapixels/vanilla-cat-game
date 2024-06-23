@@ -4,6 +4,7 @@ using TMPro;
 using PrimeTween;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class UIDialoguePrefab : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class UIDialoguePrefab : MonoBehaviour
     [TextArea(1,6)] private string[] dialogueLines;
     private int currentEmotionIndex;
     private int stringIndex;
-    private int optionIndex;
     private bool didDialoguePlay;
     private float typingTime = .20f;
     public delegate void ActivateDialogue();
@@ -66,11 +66,15 @@ public class UIDialoguePrefab : MonoBehaviour
         if(!didDialoguePlay)
         {
             cinBars.ShowBars();
-            StartDialogue();       
+            StartDialogue();
+            if(conversation.conversationTypes[stringIndex] == ConversationType.Branch)
+            {
+                StartBranch();
+            }
         }
         else if(dialogueText.text == dialogueLines[stringIndex])
         {
-            NextLineInDialogue();
+           NextLineInDialogue();
         }
         else
         {
@@ -90,8 +94,14 @@ public class UIDialoguePrefab : MonoBehaviour
     }
 
     private void NextLineInDialogue()
-    {   
-        stringIndex++;
+    {   if(stringIndex < conversation.conversationTypes.Length && conversation.conversationTypes[stringIndex] == ConversationType.Branch)
+        {
+            StartBranch();
+        }
+        else
+        {
+            stringIndex++;
+        }
         if(stringIndex < dialogueLines.Length)
         {
             UpdatePortrait();
@@ -115,9 +125,11 @@ public class UIDialoguePrefab : MonoBehaviour
 
     private void StartBranch()
     {
-        if(conversation.conversationTypes[optionIndex] == ConversationType.Branch)
-        {
-            for(int i = 0; i < conversation.optionText.Length; i++)
+        choicesPanel.SetActive(true);
+        if(conversation.optionText.Length > 0)
+        { 
+            if(optionButton.Length == conversation.optionText.Length && optionButtonText.Length == conversation.optionText.Length)
+            foreach(int i in Enumerable.Range(0, conversation.optionText.Length))
             {
                 if(conversation.optionText[i] == null)
                 {
@@ -130,6 +142,14 @@ public class UIDialoguePrefab : MonoBehaviour
                 }
                 optionButton[i].GetComponent<Button>().Select();
             }
+            else
+            {
+                Debug.LogError("Option button and text arrays must be the same length as optionText array");
+            }
+        }
+        else
+        {
+            Debug.LogError("Option text array is empty.");
         }
     }
 
@@ -153,8 +173,8 @@ public class UIDialoguePrefab : MonoBehaviour
                 case 3:
                     conversation = conversation.option4;
                     break;
-            }
-            optionIndex = 0;
+            };
+            stringIndex +=1;
         }
     }
 
