@@ -142,7 +142,6 @@ public class UIDialoguePrefab : MonoBehaviour
                     choiceButton[i].gameObject.SetActive(true);
                 }
                 choiceButton[i].Select();
-                dialogueLines = newConversations[i].dialogue;
             }
             else
             {
