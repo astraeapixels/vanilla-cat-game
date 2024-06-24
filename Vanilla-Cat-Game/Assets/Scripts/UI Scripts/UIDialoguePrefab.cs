@@ -46,7 +46,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void PlayerInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             dialoguePanel.SetActive(true);
             TriggerDialogue();
@@ -106,15 +106,15 @@ public class UIDialoguePrefab : MonoBehaviour
         else
         {
             stringIndex++;
-        }
-        if(stringIndex < dialogueLines.Length)
-        {
-            UpdatePortrait();
-            ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
-        }
-        else
-        {
-            EndDialogue();
+            if(stringIndex < dialogueLines.Length)
+            {
+                UpdatePortrait();
+                ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
+            }
+            else
+            {
+                EndDialogue();
+            }
         }
     }
 
