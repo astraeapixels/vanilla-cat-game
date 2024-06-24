@@ -46,7 +46,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void PlayerInput()
     {
-        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             dialoguePanel.SetActive(true);
             TriggerDialogue();
@@ -67,7 +67,10 @@ public class UIDialoguePrefab : MonoBehaviour
         if(!didDialoguePlay)
         {
             cinBars.ShowBars();
-            StartDialogue();
+            if(conversation.conversationTypes[stringIndex] == ConversationType.Regular)
+            {
+                StartDialogue();
+            }
             if(conversation.conversationTypes[stringIndex] == ConversationType.Branch)
             {
                 StartBranch();
@@ -95,7 +98,8 @@ public class UIDialoguePrefab : MonoBehaviour
     }
 
     private void NextLineInDialogue()
-    {   if(stringIndex < conversation.conversationTypes.Length && conversation.conversationTypes[stringIndex] == ConversationType.Branch)
+    {   
+        if(stringIndex < conversation.conversationTypes.Length && conversation.conversationTypes[stringIndex] == ConversationType.Branch)
         {
             StartBranch();
         }
@@ -175,7 +179,12 @@ public class UIDialoguePrefab : MonoBehaviour
                     conversation = newConversations[3];
                     break;
             };
-            stringIndex = 0;
+            if(newConversations[_optionIndex].conversationTypes[_optionIndex] == ConversationType.Regular)
+            {
+                stringIndex = 0;
+                dialogueLines = newConversations[_optionIndex].dialogue;
+                ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
+            }
         }
     }
 
