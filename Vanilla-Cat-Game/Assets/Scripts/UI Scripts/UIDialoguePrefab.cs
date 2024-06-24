@@ -179,9 +179,9 @@ public class UIDialoguePrefab : MonoBehaviour
                     conversation = newConversations[3];
                     break;
             };
+            stringIndex = 0;
             if(newConversations[_optionIndex].conversationTypes[_optionIndex] == ConversationType.Regular)
             {
-                stringIndex = 0;
                 dialogueLines = newConversations[_optionIndex].dialogue;
                 ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
             }

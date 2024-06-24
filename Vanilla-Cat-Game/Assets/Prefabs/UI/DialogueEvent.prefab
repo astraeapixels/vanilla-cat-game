@@ -54,12 +54,15 @@ MonoBehaviour:
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
-  optionButton:
+  choiceButton:
   - {fileID: 0}
   - {fileID: 0}
   dialoguePanel: {fileID: 0}
   choicesPanel: {fileID: 0}
   conversation: {fileID: 11400000, guid: a4d96c9828537f8459320e6f1dc955c9, type: 2}
+  newConversations:
+  - {fileID: 11400000, guid: b29021ba6406b9e468577e19e14106b2, type: 2}
+  - {fileID: 11400000, guid: fb171c8c3f75d6244a71a8de83052faf, type: 2}
   defaultImage: {fileID: 0}
   currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
   emotions:
@@ -88,12 +91,15 @@ MonoBehaviour:
   fadeInTime: 0.25
   fadeOutTime: 0.5
   exitButton: {fileID: 0}
-  optionButton:
+  choiceButton:
   - {fileID: 0}
   - {fileID: 0}
   dialoguePanel: {fileID: 0}
   choicesPanel: {fileID: 0}
   conversation: {fileID: 11400000, guid: a4d96c9828537f8459320e6f1dc955c9, type: 2}
+  newConversations:
+  - {fileID: 11400000, guid: b29021ba6406b9e468577e19e14106b2, type: 2}
+  - {fileID: 11400000, guid: fb171c8c3f75d6244a71a8de83052faf, type: 2}
   defaultImage: {fileID: 0}
   currentEmotion: {fileID: 21300000, guid: 0c367e43d20c5914881b617062c80954, type: 3}
   emotions:
