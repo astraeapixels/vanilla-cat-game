@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b2127c28d6ff54da8a7cbba2fc92b8, type: 3}
   m_Name: Option1
   m_EditorClassIdentifier: 
-  conversationTypes: 00000000
+  conversationTypes: 0000000000000000
   dialogue:
   - Thank you!! So I've been told that I'm the softest kitty around!!
-  optionText:
-  - Blue
+  - 'It''s one of my many charms haha '
+  optionText: []
   option1: {fileID: 0}
   option2: {fileID: 0}
   option3: {fileID: 0}

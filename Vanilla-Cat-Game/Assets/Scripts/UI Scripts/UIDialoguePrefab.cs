@@ -15,10 +15,11 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
-    [SerializeField] private GameObject[] optionButton;
+    [SerializeField] private Button[] choiceButton;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject choicesPanel;
     [SerializeField] private LemonSoloConversation conversation;
+    [SerializeField] private LemonSoloConversation[] newConversations;
     [SerializeField] private Image defaultImage;
     [SerializeField] private Sprite currentEmotion;
     [SerializeField] private List<Sprite> emotions;
@@ -128,19 +129,20 @@ public class UIDialoguePrefab : MonoBehaviour
         choicesPanel.SetActive(true);
         if(conversation.optionText.Length > 0)
         { 
-            if(optionButton.Length == conversation.optionText.Length && optionButtonText.Length == conversation.optionText.Length)
+            if(choiceButton.Length == conversation.optionText.Length && optionButtonText.Length == conversation.optionText.Length)
             foreach(int i in Enumerable.Range(0, conversation.optionText.Length))
             {
                 if(conversation.optionText[i] == null)
                 {
-                    optionButton[i].SetActive(false);
+                    choiceButton[i].gameObject.SetActive(false);
                 }
                 else
                 {
                     optionButtonText[i].text = conversation.optionText[i];
-                    optionButton[i].SetActive(true);
+                    choiceButton[i].gameObject.SetActive(true);
                 }
-                optionButton[i].GetComponent<Button>().Select();
+                choiceButton[i].Select();
+                dialogueLines = newConversations[i].dialogue;
             }
             else
             {
@@ -155,26 +157,26 @@ public class UIDialoguePrefab : MonoBehaviour
 
     public void OptionSelected(int _optionIndex)
     {
-        foreach(GameObject button in optionButton)
+        foreach(Button button in choiceButton)
         {
-            button.SetActive(false);
+            button.gameObject.SetActive(false);
 
             switch(_optionIndex)
             {
                 case 0:
-                    conversation = conversation.option1;
+                    conversation = newConversations[0];
                     break;
                 case 1:
-                    conversation = conversation.option2;
+                    conversation = newConversations[1];
                     break;
                 case 2:
-                    conversation = conversation.option3;
+                    conversation = newConversations[2];
                     break;
                 case 3:
-                    conversation = conversation.option4;
+                    conversation = newConversations[3];
                     break;
             };
-            stringIndex +=1;
+            stringIndex = 0;
         }
     }
 

@@ -24,5 +24,5 @@ MonoBehaviour:
   - you like ocean blue eyes
   option1: {fileID: 11400000, guid: b29021ba6406b9e468577e19e14106b2, type: 2}
   option2: {fileID: 11400000, guid: fb171c8c3f75d6244a71a8de83052faf, type: 2}
-  option3: {fileID: 11400000, guid: c18bfbffa1567a245a8daae6386b590d, type: 2}
-  option4: {fileID: 11400000, guid: 78a18d20def191b4cb12e5caca4c8b83, type: 2}
+  option3: {fileID: 0}
+  option4: {fileID: 0}
