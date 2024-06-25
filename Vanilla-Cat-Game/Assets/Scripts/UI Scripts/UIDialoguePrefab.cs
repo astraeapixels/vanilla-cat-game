@@ -205,7 +205,7 @@ public class UIDialoguePrefab : MonoBehaviour
         float duration = _typingTime;
         return Tween.TextMaxVisibleCharacters(_dialogueText, 0, characterCount, duration, Ease.Linear);
     }
-    
+
     private void PanelEnterAndExit(float _panelYPos, float _fadeTime)
     {
         Tween.UIAnchoredPosition(dialogueRect, new Vector2(0f, _panelYPos), _fadeTime, Ease.InOutQuint, 1);
