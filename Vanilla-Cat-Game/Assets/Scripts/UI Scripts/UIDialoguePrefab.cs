@@ -200,6 +200,7 @@ public class UIDialoguePrefab : MonoBehaviour
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
     {
+        _dialogueText.text = string.Empty;
         _dialogueText.SetText(_dialogueLines[_stringIndex]);
         int characterCount = _dialogueLines[_stringIndex].Length;
         float duration = _typingTime;
