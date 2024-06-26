@@ -12,6 +12,7 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private TMP_Text[] optionButtonText;
     [SerializeField] private CinematicBars cinBars;
     [SerializeField] private RectTransform dialogueRect;
+    [SerializeField] private RectTransform textRect;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private Button exitButton;
@@ -78,7 +79,7 @@ public class UIDialoguePrefab : MonoBehaviour
         }
         else if(dialogueText.text == dialogueLines[stringIndex])
         {
-           NextLineInDialogue();
+            NextLineInDialogue();
         }
         else
         {
@@ -98,7 +99,7 @@ public class UIDialoguePrefab : MonoBehaviour
     }
 
     private void NextLineInDialogue()
-    {   
+    {  
         if(stringIndex < conversation.conversationTypes.Length && conversation.conversationTypes[stringIndex] == ConversationType.Branch)
         {
             StartBranch();
@@ -144,6 +145,7 @@ public class UIDialoguePrefab : MonoBehaviour
                 {
                     optionButtonText[i].text = conversation.optionText[i];
                     choiceButton[i].gameObject.SetActive(true);
+                    Tween.UIAnchoredPosition(textRect, new Vector2(58.73706f, -9.5f), .05f, Ease.Linear);
                 }
                 choiceButton[i].Select();
             }
