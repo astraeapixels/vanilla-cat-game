@@ -183,6 +183,7 @@ public class UIDialoguePrefab : MonoBehaviour
             if(newConversations[_optionIndex].conversationTypes[_optionIndex] == ConversationType.Regular)
             {
                 dialogueLines = newConversations[_optionIndex].dialogue;
+                UpdatePortrait();
                 ShowText(dialogueText, dialogueLines, stringIndex, typingTime);
             }
         }
