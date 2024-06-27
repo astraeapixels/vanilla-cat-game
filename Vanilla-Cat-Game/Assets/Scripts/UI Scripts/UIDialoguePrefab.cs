@@ -182,6 +182,7 @@ public class UIDialoguePrefab : MonoBehaviour
                     break;
             };
             stringIndex = 0;
+            Tween.UIAnchoredPosition(textRect, new Vector2(58.73706f, -17.10002f), .05f, Ease.Linear);
             if(newConversations[_optionIndex].conversationTypes[_optionIndex] == ConversationType.Regular)
             {
                 dialogueLines = newConversations[_optionIndex].dialogue;
