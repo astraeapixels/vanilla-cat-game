@@ -22,7 +22,6 @@ public class UIDialoguePrefab : MonoBehaviour
     [SerializeField] private LemonSoloConversation conversation;
     [SerializeField] private LemonSoloConversation[] newConversations;
     [SerializeField] private Image defaultImage;
-    [SerializeField] private Sprite currentEmotion;
     [SerializeField] private List<Sprite> emotions;
     [TextArea(1,6)] private string[] dialogueLines;
     private int currentEmotionIndex;
@@ -67,11 +66,8 @@ public class UIDialoguePrefab : MonoBehaviour
     {
         if(!didDialoguePlay)
         {
-            cinBars.ShowBars();
-            if(conversation.conversationTypes[stringIndex] == ConversationType.Regular)
-            {
-                StartDialogue();
-            }
+            cinBars.ShowBars(); 
+            StartDialogue(); 
             if(conversation.conversationTypes[stringIndex] == ConversationType.Branch)
             {
                 StartBranch();
@@ -204,7 +200,6 @@ public class UIDialoguePrefab : MonoBehaviour
 
     private static Tween ShowText(TMP_Text _dialogueText, string[] _dialogueLines, int _stringIndex, float _typingTime)
     {
-        _dialogueText.text = string.Empty;
         _dialogueText.SetText(_dialogueLines[_stringIndex]);
         int characterCount = _dialogueLines[_stringIndex].Length;
         float duration = _typingTime;

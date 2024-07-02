@@ -5,15 +5,15 @@ public class SavePlayerChoices : MonoBehaviour
     public GameObject player;
     public SerializedData serializedData;
     public UIDialoguePrefab uIDialoguePrefab;
-	public LemonSoloConversation lemonSoloConversation;
-	string saveChoicesData;
-	string restoreChoices;
+    public LemonSoloConversation lemonSoloConversation;
+    public string saveChoicesData;
+    public string restoreChoices;
     private int optionIndex;
 
     void Start ()
     {
-        //serializedData = new SerializedData();
-        //RestoreChoices();
+        serializedData = new SerializedData();
+        RestoreChoices();
     }
     void Update()
     {
@@ -35,18 +35,20 @@ public class SavePlayerChoices : MonoBehaviour
         serializedData.option4 = lemonSoloConversation.optionText[3];
         saveChoicesData = JsonUtility.ToJson(serializedData);
         PlayerPrefs.SetString ("PlayerDialogueChoicesforLemon", saveChoicesData);
-        Debug.Log (saveChoicesData);
+        Debug.Log(saveChoicesData);
     }
 
     void RestoreChoices()
     {
         restoreChoices = PlayerPrefs.GetString("PlayerDialogueChoicesforLemon");
         SerializedData	serializedData1 = JsonUtility.FromJson<SerializedData>(restoreChoices);
-        if (serializedData1 != null) {
-			lemonSoloConversation.optionText[0] = serializedData1.option1;
-            lemonSoloConversation.optionText[1] = serializedData1.option2;
-            lemonSoloConversation.optionText[2] = serializedData1.option3;
-            lemonSoloConversation.optionText[3] = serializedData1.option4;
+        if (serializedData1 != null)
+        {   LemonSoloConversation newConversation = new LemonSoloConversation();
+			newConversation.optionText[0] = serializedData1.option1;
+            newConversation.optionText[1] = serializedData1.option2;
+            newConversation.optionText[2] = serializedData1.option3;
+            newConversation.optionText[3] = serializedData1.option4;
+            lemonSoloConversation.optionText[optionIndex] = newConversation.optionText[optionIndex];
 		}
     }
 }
