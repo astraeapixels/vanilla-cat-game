@@ -4,7 +4,6 @@ public class SavePlayerChoices : MonoBehaviour
 {
     public GameObject player;
     public SerializedData serializedData;
-    public UIDialoguePrefab uIDialoguePrefab;
     public LemonSoloConversation lemonSoloConversation;
     public string saveChoicesData;
     public string restoreChoices;
